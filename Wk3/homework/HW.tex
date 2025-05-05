@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{gstyle}
+\title{Differential Equations Week 3}
+\author{Garud Shah}
+\begin{document}
+\maketitle
+\newpage
+\begin{problem}[Problem 1]
+    Solve the following differential equation:
+    \begin{align*}
+        \left( ye^{xy}-\dfrac{1}{y} \right) dx + \left(xe^{xy} + \dfrac{x}{y^2} \right).
+    \end{align*}
+\end{problem}
+\begin{solution*}
+    First, we should check if the equation is exact. Using the test $\dfrac{\del M}{\del y} = \dfrac{\del N}{\del x}$, 
+    \begin{align*}
+        \dfrac{\del M}{\del y} &= xye^{xy} + \dfrac{1}{y^2}  \\ 
+        &= xye^{xy} + \dfrac{1}{y^2}= \dfrac{\del N}{\del x}
+    \end{align*}
+    Then, note that:
+    \begin{align*}
+        F(x,y) = \int ye^{xy}-\dfrac{1}{y}  \, dx &= \int xe^{xy} + \dfrac{x}{y^2} \, dy \\ 
+        e^{xy} - \dfrac{x}{y} + g(y) &= e^{xy} - \dfrac{x}{y} + h(x),
+    \end{align*}
+    and this forces $g(y) = h(x)$. As $y$ is not neceesarily equal to $x$, $g(y) = h(x) = C$, and so the solutions are of the form:
+    \begin{align*}
+        e^{xy} - \dfrac{x}{y} &= C \\ 
+        e^{xy} &= C + \dfrac{x}{y}.
+    \end{align*}
+\end{solution*}
+\newpage
+\begin{problem}[Problem 2]
+    Solve the differential equation:
+    \begin{align*}
+        (x^4 - x + y) dx - x  dy = 0.
+    \end{align*}
+\end{problem}
+\begin{solution*}
+    First, note that there is clearly no hope of forcing linearity/seprability.
+    \begin{lemma}
+        The given differential equation is NOT exact.
+    \end{lemma}
+    \begin{proof}
+        Use the test for exactness:
+        \begin{align*}
+            \dfrac{\del}{\del y}(x^4 - x + y) &= 1 \\
+            &\ne -1 &= \dfrac{\del}{\del x} (-x),
+        \end{align*}
+    \end{proof}
+    So, given our previous observation and claim, we must add an integrating factor to make our differential equation exact. \\
+    Now, work out our needed integrating factor $\mu$:
+    \begin{align*}
+        \dfrac{\del}{\del y}((x^4 - x + y) \cdot \mu(x)) &= \dfrac{\del}{\del x}((-x) \cdot \mu(x)) \\ 
+        \mu(x) &= -\mu(x) - x \mu'(x) \\ 
+        \dfrac{\mu'(x)}{\mu(x)} &= -\dfrac{2}{x} \\ 
+        \int \dfrac{1}{\mu} \, d \mu &= -2 \cdot \int \dfrac{1}{x} \, dx \\ 
+        \log |\mu(x)| &= -2\log |x| + C \\ 
+        \mu(x) &= \dfrac{c}{x^2}.*
+    \end{align*}
+    So now we need (we assume $c=1$ as we can solve the differential equation with any $c \ne 0$):
+    \begin{align*}
+        F(x,y) = \int \dfrac{x^4 - x + y}{x^2} \, dx &= \int -\dfrac{1}{x} \, dy \\ 
+        \dfrac{x^3}{3} - \log |x| - \dfrac{y}{x} + g(y) &= -\dfrac{y}{x} + h(x),
+    \end{align*}
+    and noting that $g(y) = h(x) - \dfrac{x^3}{3} + \log |x|$, we have $h(x) = \dfrac{x^3}{3} - \log |x|$ and $G(y) = 0$. Thus,
+    \begin{align*}
+        \dfrac{x^3}{3} - \log |x| - \dfrac{y}{x} &= C \\ 
+        \dfrac{x^3}{3} - \log |x| - C &= \dfrac{y}{x} \\ 
+        y &= \dfrac{x^4}{3} - x \log |x| - Cx
+    \end{align*}
+    is the answer.
+    \\~\\ 
+    *Trivial solution ignored, recombined in at the end.
+\end{solution*}
+\newpage
+\begin{problem}[Problem 3, version b, parts removed similar to AoPS textbook solutions]
+    Solve the following differential equation:
+    \begin{align*}
+        (5x^2y + 6x^3y + 4xy^2)\, dx + (2x^3 + 3x^4y + 3x^2y)\, dy= 0.
+    \end{align*}
+\end{problem}
+\begin{solution*}
+    Once again we have no chance of forcing linearity or seprability, thus concentrate on exactness. Notice that:
+    \begin{lemma}
+        The given differential equation is not exact.
+    \end{lemma}
+    \begin{proof}
+        Use the test for exactness:
+        \begin{align*}
+            &\dfrac{\del}{\del y}(5x^2y + 6x^3y^2 + 4xy^2) \\ 
+            &= 5x^2 + 12x^3y + 8xy \\
+            &\ne 6x^2 + 12x^3y + 6xy \\  
+            &= \dfrac{\del}{\del x} (2x^3 + 3x^4y + 3x^2y),
+        \end{align*}
+    \end{proof}
+    Notice that we need for an integrating factor:
+    \begin{align*}
+        & (5x^2 + 12x^3y + 8xy)\mu(x,y) + (5x^2y + 6x^3y^2 + 4xy^2)\mu_y(x,y) \\ 
+        &= (6x^2 + 12x^3y + 6xy)\mu(x,y) + (2x^3 + 3x^4y + 3x^2y)\mu_x(x,y) \\ 
+        &(-x^2 + 2xy)\mu(x,y) \\ 
+        &= (2x^3 + 3x^4y + 3x^2y)\mu_x(x,y) - (5x^2y + 6x^3y^2 + 4xy^2)\mu_y(x,y).
+    \end{align*}
+    As the left and right side could both be polynomials, try $\mu(x,y) = x^ay^b$:
+    \begin{align*}
+        &(-x^2 + 2xy)\mu(x,y) \\ 
+        &= (2x^3 + 3x^4y + 3x^2y)\mu_x(x,y) - (5x^2y + 6x^3y^2 + 4xy^2)\mu_y(x,y) \\ 
+        &-x^{2+a}y^b + 2x^{a+1}y^{b+1}   \\ 
+        &= 2ax^{2+a}y^b + 3ax^{3+a}y^{b+1} + 3ax^{1+a}y^{b+1} \\
+        & - 5bx^{2+a}y^b - 6bx^{3+a}y^{b+1} - 4bx^{a+1}y^{b+1} \\ 
+        -x^2 + 2xy &= 2ax^2 + 3ax^3y + 3axy- 5bx^2 - 6bx^3y - 4bxy \\ 
+        -x + 2y &= 2ax + 3ax^2y + 3ay- 5bx - 6bx^2y - 4by \\ 
+        0 &= (2a+1-5b)x + (3a-6b)x^2y + (3a-4b-2)y,
+    \end{align*}
+    thus $a=2b$, $-b+1=0$, $b=1$, $a=2$. So we need to solve the \textit{exact} differential equation:
+    \begin{align*}
+        (5x^4y^2 + 6x^5y^2 + 4x^3y^3)\, dx + (2x^5y + 3x^5y^2 + 3x^4y^2)\, dy= 0.
+    \end{align*}
+    Notice that both sides will be of the form after integration $xyG(x,y) + H_x(x)$ (or same for $y$) thus $F(x,y) = xyG(x,y)$. So we only
+    integrate one equation and get:
+    \begin{align*}
+        &\int 5x^4y^2 + 6x^5y^2 + 4x^3y^3  \, dx \\ 
+        &= x^5y^2 + x^6y^2 + x^4y^3,
+    \end{align*}
+    thus we need:e\\\
+    \begin{align*}
+        x^5y^2+x^6y^2+x^4y^3 &= C^{*}.
+    \end{align*}
+    \\~\\ 
+    * Here we ignore $y(x) \equiv 0$, added back later.
+\end{solution*}
+\begin{problem}[Problem 4, generalized]
+    Solve a Ricatti Equation (``First Order Quadratic Differential Equation''):
+    \begin{align*}
+        y' = A(x)y^2 + B(x)y + C(x).
+    \end{align*}
+    with $y' = 1+y^2-x^2$.
+\end{problem}
+\begin{solution*}
+    First let's try $y(x) = \dfrac{1}{v(x)} + y_1(x)$ where $y_1$ is a particular solution. Then note that:
+    \begin{align}
+        -\dfrac{v'(x)}{v(x)^2} + y_1'(x) &=A(x)\left(\dfrac{1}{v(x)} + y_1(x)\right)^2 + B(x)\left(\dfrac{1}{v(x)} + y_1(x)\right) + C(x) \\
+        -v'(x) &= A(x) + 2A(x)v(x)y_1(x) + B(x)v(x) \\
+        v'(x) + v(x)(2A(x)y_1(x)+B(x)) &= -A(x). 
+    \end{align}
+    Solving for our $y$,
+    \begin{align}
+        v'(x) + v(x)(2A(x)y_1(x)+B(x)) &= -A(x) \\
+        v'(x) + 2xv(x) &= -1 \\
+        e^{x^2}v'(x) + 2xe^{x^2}v(x) &= -e^{x^2}  \\ 
+        v(x) &= - \dfrac{1}{e^{x^2}}\int e^{x^2} \, dx \\
+        y(x) &= \dfrac{1}{- \dfrac{1}{e^{x^2}}\left(\int e^{x^2} \, dx + C\right)} + y_1(x).
+    \end{align}
+\end{solution*}
+Project/Problem 5: in seperate beamer presentation
+\end{document}

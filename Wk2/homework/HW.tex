@@ -1,0 +1,168 @@
+\documentclass{article}
+\usepackage{Style}
+\title{Differential Equations Week 2}
+\author{Garud Shah}
+\begin{document}
+\maketitle
+\begin{problem}[Problem 1a]
+    Consider the differential equation $y' = 3x^2y^2$.
+        \begin{enumerate}[I.]
+            \item Prove that there is a unique solution on some interval around all initial values.
+            \item Draw at least 5 level curves of $y'(x,y)$.
+            \item Solve the differential equation.
+            \item Draw a direction field for the differential equation.
+            \item For the inital value problem $y(0)=1$:
+            \begin{enumerate}[1.]
+                \item Draw the solutions of the differential equation with this 
+                intial value onto the direction field.
+                \item Approximate the solutions of the differential equation with Euler's Method,
+                with a delta-value of $\Delta$. 
+                \item Graph the solutions in 1aV2 for
+                \begin{enumerate}[(a)]
+                    \item $\Delta = 0.4$
+                    \item $\Delta = 0.2$
+                    \item $\Delta = 0.01$.
+                \end{enumerate}
+            \end{enumerate}
+            \item For the inital value problem $y(0)=0$:
+            \begin{enumerate}[1.]
+                \item Draw the solutions of the differential equation with this 
+                intial value onto the direction field.
+                \item Approximate the solutions of the differential equation with Euler's Method,
+                with a delta-value of $\Delta$. 
+                \item Graph the solutions in 1aVI2 for
+                \begin{enumerate}[(a)]
+                    \item $\Delta = 0.4$
+                    \item $\Delta = 0.2$
+                    \item $\Delta = 0.01$.
+                \end{enumerate}
+            \end{enumerate}
+        \end{enumerate}
+    \end{problem} 
+    \begin{problem}[Problem 1b]
+    Consider the differential equation $y' = \sqrt[3]{y}$.
+        \begin{enumerate}[I.]
+            \item Prove that there is a unique solution on some interval around all initial values if $y_0 \ne 0$.
+            \item Draw at least 5 level curves of $y'(x,y)$.
+            \item Solve the differential equation.
+            \item Draw a direction field for the differential equation.
+            \item For the inital value problem $y(0)=1$:
+            \begin{enumerate}[1.]
+                \item Draw the solutions of the differential equation with this 
+                intial value onto the direction field.
+                \item Approximate the solutions of the differential equation with Euler's Method,
+                with a delta-value of $\Delta$. 
+                \item Graph the solutions in 1bV2 for
+                \begin{enumerate}[(a)]
+                    \item $\Delta = 0.4$
+                    \item $\Delta = 0.2$
+                    \item $\Delta = 0.01$.
+                \end{enumerate}
+            \end{enumerate}
+            \item For the inital value problem $y(0)=0$:
+            \begin{enumerate}[1.]
+                \item Draw the solutions of the differential equation with this 
+                intial value onto the direction field.
+                \item Approximate the solutions of the differential equation with Euler's Method,
+                with a delta-value of $\Delta$. 
+                \item Graph the solutions in 1bVI2 for
+                \begin{enumerate}[(a)]
+                    \item $\Delta = 0.4$
+                    \item $\Delta = 0.2$
+                    \item $\Delta = 0.01$.
+                \end{enumerate}
+            \end{enumerate}
+        \end{enumerate}
+\end{problem}
+\begin{solution}[Problem 1aI]
+    Notice the following:
+    \begin{itemize}
+        \item $f(x,y)$ is continuous everywhere.
+        \item $\dfrac{\partial f}{\partial y} = 6x^2y$ is also continous everywhere.
+        \item By existence and uniqueness don.
+    \end{itemize}
+\end{solution}
+\begin{solution}[Problem 1aII]
+    BLAHS
+\end{solution}
+\begin{solution}[Problem 1bI]
+    Notice the following:
+    \begin{itemize}
+        \item $f(x,y)$ is continuous everywhere.
+        \item $\dfrac{\partial f}{\partial y} = \dfrac{1}{3y^{2/3}}$ is continous everywhere except $y=0$.
+        \item By existence and uniqueness done.
+    \end{itemize}
+\end{solution}
+\begin{problem}[Problem 3]
+    
+\end{problem}
+\begin{solution*}
+    
+\end{solution*}
+\begin{problem}[Problem 5 (Equivilant to 2.3 39)]
+    Consider the following initial value problem:
+    \begin{align}
+        T(0) &= 0; \\ 
+        \dfrac{dT}{dt} &= -T + 
+        \begin{cases}
+            0, \lfloor t \rfloor \text{ is odd} \\ 
+            1, \lfloor t \rfloor \text{ is even.}
+        \end{cases}
+    \end{align}
+    \begin{enumerate}[(a)]
+        \item Find $100T(3)$ rounded to the nearest whole number.
+        \item Find $100T(8)$ rounded to the nearest whole number.
+    \end{enumerate}
+\end{problem}
+\begin{solution*}
+    \begin{lemma}
+        If $t$ is an odd whole number:
+        \begin{align*}
+            T(t) = \sum_{i=0}^{t} \dfrac{(-1)^i}{e^i}.
+        \end{align*}
+    \end{lemma}
+    \begin{proof}
+        First, we solve the relavent differential equationL
+        \begin{align*}
+            \dfrac{dT}{dt} &= 1- T \\ 
+            \dfrac{T'}{1-T} &= 1 \\ 
+            \int \dfrac{1}{1-T} dT &= t \\
+            -\log |1-T| &= t + C \\ 
+            1-T &= ce^{-t} \\ 
+            T &= 1-ce^{-t}.
+        \end{align*}
+        Then, proceed by induction. \\~\\ 
+        \IHID $t-1$ case of (Lemma 5.2)/$t-2$ case of this lemma (equivilant as noted in the lemma, ** of 5.2 provides us our
+        base case) \\ 
+        \ISID Note that the recurrence is $T(t) = 1 + \dfrac{1}{e}(T(t-1)-1)$. \\~\\ 
+        Working out the algebra, we get 
+        \begin{align*}
+            &1-\dfrac{1}{e} + \sum_{i=2}^{t} \dfrac{(-1)^i}{e^i} \\ 
+            =&\sum_{i=0}^{t} \dfrac{(-1)^i}{e^i},
+        \end{align*}
+        and we are done with this lemma. \\~\\ 
+        *note the case where $T(t) = 1$: however this gets factored back in at the end as $c$ can be any value
+    \end{proof}
+    \begin{lemma}
+        If $t$ is an even whole number:
+        \begin{align*}
+            T(t) = \sum_{i=1}^{t} \dfrac{(-1)^{i+1}}{e^i}.
+        \end{align*}
+    \end{lemma}
+    \begin{proof}
+        When $\lfloor t \rfloor$ is ODD, notice that:
+        \begin{align*}
+            \dfrac{dT}{dt} &= -T \\ 
+            \dfrac{T'}{T}* &= -1 \\
+            \int \dfrac{1}{T} dT &= -t \\ 
+            - \log \mid T\mid &= -t + C \\ 
+            T &= ce^{-t} *,
+        \end{align*}
+        for $t-1\le T\le t$. This implies $T(t) = \dfrac{T(t-1)}{e}$ which** is the above formula given that (Lemma 5.1)
+        holds for $t-1$. \\
+        *note the case where $T(t) = 0$: however this gets factored back in at the end as $c$ can be any value
+        **unless $t=0$, when this statement trivally holds as empty sums are zero
+    \end{proof}
+    
+\end{solution*}
+\end{document}

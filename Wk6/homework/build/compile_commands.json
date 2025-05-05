@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/garuds/DiffEq/Wk6/homework/build",
+  "command": "/usr/bin/c++  -I/include -g -std=gnu++14 -DGTEST_HAS_PTHREAD=1 -o CMakeFiles/runTests.dir/main_test.cpp.o -c /home/garuds/DiffEq/Wk6/homework/tests/main_test.cpp",
+  "file": "/home/garuds/DiffEq/Wk6/homework/tests/main_test.cpp",
+  "output": "CMakeFiles/runTests.dir/main_test.cpp.o"
+}
+]

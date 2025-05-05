@@ -1,0 +1,208 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+\usetheme{Antibes}
+%Information to be included in the title page:
+\title{Utility And Risk Aversion Modeled By Differential Equations}
+\author{Garud S}
+\date{February 3rd, 2025}
+\begin{document}
+\frame{\titlepage}
+\section{Motivation and A Model For Human Decsions}
+    \subsection{Motivation}
+        \begin{frame}
+            \frametitle{A Decision}
+            \begin{example}[Introductory Game Show]
+                Say you're on a game show. You are presented the following two options, as you just got the second-last question on the game show right: \pause
+            \begin{enumerate}
+                \item Quit and win the second highest prize of \$500,000. \pause
+                \item Play for the last question, in which: \pause
+                \begin{enumerate}[a)]                    
+                    \item You have a 50\% chance of getting right and winning \$1,000,000.
+                    \item You have a 50\% chance of getting wrong and winning just \$32,000 
+                \end{enumerate} 
+                \pause NOTE: You cannot quit once you start the second question!
+            \end{enumerate} 
+            \end{example}
+        \end{frame}
+        \begin{frame}\frametitle{What People Do}
+            Which would you choose? It's a risky bargain doing the second option, but it's a positive expected value move. 
+            \pause However, many people would prefer the first option over the second.
+            Why? Is there some important hidden thershold? \pause No! There isn't really. There's about as much difference between $10,000$ dollars and $100,000$ as between $100$K and a million.
+            There isn't a hidden thershold which mattered for this example.
+        \end{frame}
+        \begin{frame}
+            \frametitle{A Problem With A $+EV$ Move?}
+            The numbers I gave earlier seemed inconspiciuous, but they reflect something important: our brain has a perceived value to things that
+            doesn't match up with the actual value - a \textit{utility}. \pause
+            \begin{definition}
+                A utility function, denoted by $u(x)$, is what the perceived value of something is given the ``real'' value.
+            \end{definition} \pause
+            Here, the numbers I gave pointed to utility being $u(x) = C\log x$. 
+        \end{frame}
+    \subsection{Modeling Decsions}
+        \begin{frame}
+            \frametitle{Utility And Decisions}
+                How DO we make decsions? Well, we want to maximize what we get out and minimize what we lose. However, this is not the full story. \pause
+                Our perception plays a role in use interpreting what we get out. To encapusulate this, use utility! So, we make decisions to maximize the following
+                quantity:
+                \begin{align*}
+                    E(u(x)).
+                \end{align*}
+                \pause This is the expected utility, which shows how much we think we might get out of something.
+        \end{frame}
+        \begin{frame}
+            \frametitle{Jensen's Inequality And Convexity}
+                As we make decisions to maximize the following
+                quantity:
+                \begin{align*}
+                    E(u(x)),
+                \end{align*}
+                \pause and by:
+                \begin{theorem}[Jensen's Inequality]
+                    \begin{align*}
+                        E(u(x)) < u(E(x)),
+                    \end{align*}
+                    for a convave function $u(x)$.
+                \end{theorem}
+                \pause this shows that convave functions have \textit{some} level of risk aversion, as can be interpreted from Jensen.
+                Thus concavity, or $u''(x)$ can be thought of as a metric of risk aversion.
+        \end{frame}
+    \subsection{Defining A Few Metrics}
+        \begin{frame}
+            \frametitle{Relative Risk}
+                Notice that if your risk value changes quickly, it really doesn't matter as much if your risk is really concave. Add in some care for the real expected value to get:
+                \begin{definition}[Relative Risk]
+                    The \textit{relative risk} of a utility function is
+                    \begin{align*}
+                        \hat{R_{\text{rel}}}[u(x)] = \dfrac{xu''(x)}{u'(x)}
+                    \end{align*}
+                \end{definition}
+                
+        \end{frame}
+        \begin{frame}
+            \frametitle{Absolute Risk + The Setup}
+                However, we can simplify things and just deal with the following metric: \pause
+                \begin{definition}[Absolute Risk]
+                    The \textit{absolute risk} of a utility function is
+                    \begin{align*}
+                        \hat{R_{\text{abs}}}[u(x)] = \dfrac{xu''(x)}{u'(x)}
+                    \end{align*}
+                \end{definition}
+                \pause But note that people, at any instant, will likely exhibit constant risk. Thus, we have differential equations
+                that model people's behaviour in risky situations.
+        \end{frame}
+\section{Math Of Risk}
+    \subsection{Relative Risk}
+        \begin{frame}
+            \frametitle{Substitution and Seperation}
+                Note that, with $v=u'(x)$:
+                \begin{align*}
+                    \hat{R_{\text{rel}}}[u(x)] &= \dfrac{xu''(x)}{u'(x)} \\ 
+                    r &= -\dfrac{xv'(x)}{v(x)} \\ 
+                    -r\log |x| &= \log|v| + a \\ 
+                    v &= Ax^r.
+                \end{align*}
+        \end{frame}
+        \begin{frame}
+            \frametitle{Solving The Equation}
+            Plugging in:
+                \begin{align*}
+                    v &= Ax^r \\ 
+                    u(x) &= Ax^{r+1} + C,
+                \end{align*}
+                unless $r=-1$. \pause In that case we have $A\log |x| + C$. But $A$ and $C$ don't matter for decisions: as they can just be pulled out and cancelled off in expected value as we assume $A > 0$
+                as otherwise in certain situtations $x<0$ is better than $x>0$ which is pure nonsense. \pause Then restrict to $x>0$ as otherwise for $r \not \in \mathbb{Z}$ we'd be getting complex values and for $r=-1$ we'd have 
+                a large punishment better than a small reward.
+        \end{frame}
+    \subsection{Absolute Risk}
+        \begin{frame}\frametitle{Substitution and Seperation For Absolute Risk}
+            We can do a similar thing:
+            \begin{align*}
+                \hat{R_{\text{abs}}}[u(x)] &= \dfrac{u''(x)}{u'(x)} \\ 
+                r &= \dfrac{v'(x)}{v(x)} \\ 
+                rx &= \log|v| + a \\ 
+                v &= Ae^{xr}.
+            \end{align*}
+        \end{frame}
+        \begin{frame}\frametitle{Getting Solutions}
+            Integrating,
+            \begin{align*}
+                u(x) &= Ae^{xr} + C& r\ne 0 \\ 
+                u(x) &= Ax + C& r=0.
+            \end{align*}
+            \pause Remove factors of $A$ and $C$ and we get:
+            \begin{align*}
+                u(x) &= Ae^{xr} \text{ or } x.
+            \end{align*}
+        \end{frame}
+    
+\section{Risk Strategies}
+    \subsection{Positive Risk}
+        \begin{frame}
+            \frametitle{A Obvious Game-Show Scam Which Works For Positive Risk}
+                This is completely silly. Here you'd take the following risk for SOME $\epsilon>0$:
+                \begin{example}[A way to get scammed]
+                    \begin{enumerate}
+                        \item 50\% Chance of winning \$200-$\epsilon$
+                        \item 50\% Chance of winning nothing
+                    \end{enumerate} \pause
+                    versus winning \$100. \\
+                \end{example}
+                \pause Do you see the problem here?
+                
+        \end{frame}
+    \subsection{Zero Risk}
+        \begin{frame}
+            \frametitle{A Note}
+                Note that we only have constant relative and absolute risk aversion for linear utility functions! Here risk is zero, and we are in a perfect land of
+                expected values in which the second option is much better:
+                \begin{example}[Introductory Game Show, Again]
+                    Say you're on a game show. You are presented the following two options, as you just got the second-last question on the game show right: \pause
+                \begin{enumerate}
+                    \item Quit and win the second highest prize of \$500,000. \pause
+                    \item Play for the last question, in which: 
+                    \pause
+                    \begin{enumerate}[a)]                    
+                        \item You have a 50\% chance of getting right and winning \$1,000,000.
+                        \item You have a 50\% chance of getting wrong and winning just \$32,000 
+                    \end{enumerate} 
+                    \pause NOTE: You cannot quit once you start the second question!
+                \end{enumerate} 
+                \end{example}
+                any day.
+        \end{frame}
+    \subsection{Negative Risk}
+    \begin{frame}\frametitle{0 to -1 relative risk: law of diminishing returns}
+        \begin{theorem}
+            The utility function for 0 to -1 relative risk is:
+        \begin{align*}
+            x^{1+r},
+        \end{align*}
+        \end{theorem} \pause
+        $r$ risk. And rembere that $x^a$ for $a<1$ reflects diminsihing returns! This is partly where the law of diminishing returns comes from.
+        comes from.
+    \end{frame}
+    \begin{frame}\frametitle{-1 relative risk: what our brains think}
+        \begin{theorem}
+            The utility function for -1 relative risk is:
+        \begin{align*}
+            \log x,
+        \end{align*}
+        \end{theorem} \pause
+        and this is how our brains distort large numbers! This is what at least I think how most people make decsions,
+        and is the main reason of the law of diminishing returns - logarithimic returns drop off very quickly! \pause This is why rewards 
+        in quiz shows increase exponentially - because to the constestants, it feels like a constant increase question by question.\pause It's 
+        why this exponential increase works - it's a ``$-EV$'' move to get something wrong due to our utility function!
+    \end{frame}
+    \begin{frame}\frametitle{Why $-1$ is the lowest relative risk value (That actually MAKES SENSE), and $0$ for absolute}
+        At this point, it doesn't make sense to have a relative/absolute risk this low. With the constraints imposed earlier, we have that 
+        smaller rewards are \textit{better} than larger rewards! This is, in layman's terms:
+    \end{frame}
+\end{document}

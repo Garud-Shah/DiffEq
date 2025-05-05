@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage{style}
+\title{Differential Equations Week \textbf{7}}
+\author{Garud Shah}
+\begin{document}
+    \maketitle \newpage 
+    \begin{problem}[Problem 1, generalized]
+        \setcounter{equation}{-1}
+        Find extra particular solutions to the differential equation 
+        \begin{align}
+            y'' - 2xy' + \lambda y = 0.
+        \end{align}
+        for $\lambda=4,6$.
+    \end{problem}
+    \begin{solution}
+        Consider $4x^{\lambda/2}$. We get, plugging in to the differential operator:
+        \begin{align}
+            \lambda\left(\lambda - 2\right)x^{\lambda/2 - 2}.
+        \end{align}
+        For $\lambda = 4$, this gives the constant $8$ needed whixh means we just need to subtract two, giving $2x^2-1$ asour first solution. \\
+        At $6$, we get $24x$, and try $kx$ to subtract $6x$ giving $2x^3 - 3x$ for this equation. \\
+        Reduction of order time! For $\lambda = 4,6$ in top, bottom respectivly: (use eqn. 8 in the textbook)
+        \begin{align}
+            \boxed{(2x^2 - 1) \int \dfrac{e^{x^2}}{(2x^2-1)^2}dx} \\
+            \boxed{(3x^2 - 2x) \int \dfrac{e^{x^2}}{(3x^2-2x)^2}dx} \\
+        \end{align}  
+    \end{solution}
+    \newpage
+    \begin{problem}[Problem 2]
+        Solve the differential equation 
+        \begin{align}
+            (x^2-1)y'' -2xy' + 2y = 0.
+        \end{align}
+    \end{problem}
+    \begin{solution}
+        Immediately try $xf$. We get:
+        \begin{align}
+            (x^2-1)(f' + xf'') - 2x(f+f'x) + 2fx &= 0 \\
+            x^2f' - f' + x^3f'' - xf'' - 2fx + 2f'x^2 + 2fx &= 0 \\
+            (x^3-x)f'' + 3f'(x^2-1) &= 0 \\
+            3f' &= xf'' \\
+            f' &= x^3 \\
+            f &\equiv x^4 \\
+            y(x) &= c_1x+c_2x^4.
+        \end{align}
+    \end{solution}
+\end{document}

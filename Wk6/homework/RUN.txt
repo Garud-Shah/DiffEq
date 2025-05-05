@@ -1,0 +1,2 @@
+g++ -o main improved-euler.cpp
+./main

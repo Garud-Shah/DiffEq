@@ -1,0 +1,193 @@
+\documentclass[11pt]{article}
+\usepackage{style}
+\title{Differential Equations Week 4}
+\author{Garud Shah}
+\begin{document}
+    \maketitle
+    \begin{problem}[Problem 1]
+        Consider the following initial value problem:
+        \begin{align}
+            \begin{cases}
+                y' + \lambda y &= 0 \\
+                y(0) &= 1
+            \end{cases}
+        \end{align}
+        \begin{enumerate}[(a)]
+            \item Show that Euler's Method produces the approximation $f_n$ of $(nh, (1-\lambda h)^n)$.
+            \item Show that the trapezoid scheme produces the approximation $f_n$ of $\left(nh, \left(\dfrac{1-\lambda h/2}{1+\lambda h/2}\right)^n\right)$ which 
+            goes to $0$ as $x$ goes to infinity.
+            \item Show that iff $0 < \lambda h < 2$, Imporved Euler goes to $0$ as $x$ goes to infinity.
+        \end{enumerate}
+    \end{problem}
+    \begin{solution}[Solution 1a]
+        We proceed by induction. \\~\\
+        \BCID $n=0$. Euler produces $1$ as this is the initial value, trivial. \\~\\
+        \IHID Assume true for $n-1$. \\~\\
+        \ISID Note that $y' = -\lambda y$. With step size $h$, and value for $(n-1)h$ as $y$, Euler will give:
+        \begin{align}
+            y_n &= y_{n-1} - \lambda hy_{n-1} \\ 
+            &=(1-\lambda h)y_{n-1} \\ 
+            &=(1-\lambda h)^n,
+        \end{align}
+        and we are done.
+    \end{solution}
+    \begin{solution}[Solution 1b]
+        We follow similar inductive reasoning as 1a. \\~\\
+        \BCID $n=0$. Trapezoid scheme produces $1$ as this is the initial value, trivial. \\~\\
+        \IHID Assume true for $n-1$. \\~\\
+        \ISID Note that $y' = -\lambda y$. With step size $h$, and value for $(n-1)h$ as $y$, guessing the given value will give:
+        \begin{align}
+            \textstyle
+            \left(\frac{1-\lambda h/2}{1+\lambda h/2}\right)^n &= \textstyle \left(\frac{1-\lambda h/2}{1+\lambda h/2}\right)^{n-1} - \frac{\lambda h}{2} \left(\left(\frac{1-\lambda h/2}{1+\lambda h/2}\right)^{n-1} + \left(\frac{1-\lambda h/2}{1+\lambda h/2}\right)^n \right) \\
+            \displaystyle
+            \dfrac{1-\lambda h/2}{1+\lambda h/2} &= 1 - \dfrac{\lambda h}{2} \left(1 + \left(\dfrac{1-\lambda h/2}{1+\lambda h/2}\right) \right) \\
+            \dfrac{1-\lambda h/2}{1+\lambda h/2} &= 1 - \dfrac{\lambda h}{1+\lambda h/2},
+        \end{align}
+        and we are done.
+    \end{solution}
+    \begin{solution}[Solution 1c]
+        Note that $y' = -\lambda y$. With step size $h$, and value for $(n-1)h$ as $y$, Improved Euler will give:
+        \begin{align}
+            y_n &= y_{n-1} - \dfrac{h}{2} \left( \lambda y_{n-1} + \lambda y_{n-1} (1-\lambda h) \right) \\ 
+            &= y_{n-1} \left(1 - \lambda h + \dfrac{(\lambda h)^2}{2}\right),
+        \end{align}
+        which means that $|y_n| < |y_{n-1}|$ iff $1 - \lambda h + \dfrac{(\lambda h)^2}{2} < 1$, or $0 < \lambda h < 2$, so we are done.
+    \end{solution}
+    \newpage
+    \begin{problem}[Problem 2]
+        For the intial value problem:
+        \begin{align}
+            p'=10p(1-p), p(0) = 0.1
+        \end{align}
+        \begin{enumerate}[(a)]
+            \item Solve the intial value problem and note that $p(t)$ goes to $1$ as $t$ goes to infinity.
+            \item Show that Euler's method gives:
+            \begin{align}
+                p_{n+1} = p_n + h \cdot 10p_n(1-p_n). 
+            \end{align}
+            \item Calculate 60 values of Euler's Method for:
+            \begin{enumerate}[(i)]
+                \item $h=0.18$.
+                \item $h=0.23$.
+                \item $h=0.25$.
+                \item $h=0.3$.
+            \end{enumerate}
+            \item Calculate 60 values of RK4 for:
+            \begin{enumerate}[(i)]
+                \item $h=0.3$.
+                \item $h=0.325$.
+                \item $h=0.35$.
+            \end{enumerate}
+            (None of these convergee to $1$, the correct value.)
+        \end{enumerate}
+    \end{problem}
+    \begin{solution}[Solution 2a]
+        We solve the differential equation:
+        \begin{align}
+            p' &= 10p(1-p) \\
+            \int \dfrac{p'}{10p(1-p)}dt &= t \\ 
+            \log|p| + \log|1-p| &= 20t+C \\
+            \dfrac{p}{1-p} &= Ce^{20t} \\
+            p &= \dfrac{1}{1+Ce^{20t}} \\
+            0.1 &= \dfrac{1}{1+C} \\
+            p &= \dfrac{1}{1+9e^{20t}}.
+        \end{align}
+    \end{solution}
+    \begin{solution}[Solution 2b]
+        Trivial by defintion of Euler's Method.
+    \end{solution}
+    \begin{solution}[Answer 2c-i]
+        Iteration 0: (0,0.1) \\
+        Iteration 1: (0.18,0.262) \\
+        Iteration 2: (0.36,0.610041)\\
+        Iteration 3: (0.54,1.03824)\\
+        Iteration 4: (0.72,0.966772)\\
+        Iteration 10: (1.8,0.991664)\\
+        Iteration 20: (3.6,0.999114)\\
+        Iteration 30: (5.4,0.999905)\\
+        Iteration 40: (7.2,0.99999)\\
+        Iteration 50: (9,0.999999)\\
+        Iteration 55: (9.9,1)\\
+        Iteration 56: (10.08,1)\\
+        Iteration 57: (10.26,1)\\
+        Iteration 58: (10.44,1)\\
+        Iteration 59: (10.62,1)\\
+        Iteration 60: (10.8,1)
+    \end{solution}
+    \begin{solution}[Answer 2c-ii]
+        Iteration 0: (0,0.1)\\
+        Iteration 1: (0.23,0.307)\\
+        Iteration 2: (0.46,0.796327)\\
+        Iteration 3: (0.69,1.16936)\\
+        Iteration 4: (0.92,0.713852)\\
+        Iteration 5: (1.15,1.18367)\\
+        Iteration 56: (12.88,0.687874)\\
+        Iteration 57: (13.11,1.18169)\\
+        Iteration 58: (13.34,0.687874)\\
+        Iteration 59: (13.57,1.18169)\\
+        Iteration 60: (13.8,0.687874)
+    \end{solution}
+    \newpage
+    \begin{solution}[Answer 2c-iii]
+        Iteration 0: (0,0.1)\\
+        Iteration 1: (0.25,0.325)\\
+        Iteration 2: (0.5,0.873438)\\
+        Iteration 3: (0.75,1.1498)\\
+        Iteration 4: (1,0.719203)\\
+        Iteration 53: (13.25,1.225)\\
+        Iteration 54: (13.5,0.535948)\\
+        Iteration 55: (13.75,1.15772)\\
+        Iteration 56: (14,0.701238)\\
+        Iteration 57: (14.25,1.225)\\
+        Iteration 58: (14.5,0.535948)\\
+        Iteration 59: (14.75,1.15772)\\
+        Iteration 60: (15,0.701238)
+    \end{solution}
+    \begin{solution}[Answer 2c-iv]
+        Iteration 0: (0,0.1)\\
+        Iteration 1: (0.3,0.37)\\
+        Iteration 2: (0.6,1.0693)\\
+        Iteration 3: (0.9,0.846993)\\
+        Iteration 4: (1.2,1.23578)\\
+        Iteration 10: (3,1.25115)\\
+        Iteration 20: (6,0.557382)\\
+        Iteration 30: (9,0.320003)\\
+        Iteration 40: (12,0.186425)\\
+        Iteration 50: (15,0.0918856)\\
+        Iteration 56: (16.8,1.23251)\\
+        Iteration 57: (17.1,0.372804)\\
+        Iteration 58: (17.4,1.07427)\\
+        Iteration 59: (17.7,0.834916)\\
+        Iteration 60: (18,1.24841)
+    \end{solution}
+    \newpage
+    \begin{solution}[Answer 2d-i]
+        Iteration 0: (0,0.1)\\
+        Iteration 1: (0.3,0.638076)\\
+        Iteration 2: (0.6,0.789598)\\
+        Iteration 3: (0.9,0.765825)\\
+        Iteration 4: (1.2,0.761264)\\
+        Iteration 5: (1.5,0.76085)\\
+        Iteration 6: (1.8,0.76082)\\
+        Iteration 7: (2.1,0.760817)\\
+        Iteration 8: (2.4,0.760817) - stays static.
+    \end{solution}
+    \begin{solution}[Answer 2d-ii]
+        Iteration 0: (0,0.1) \\
+        Iteration 1: (0.325,0.666946) \\
+        Iteration 2: (0.65,0.67586) \\
+        Iteration 3: (0.975,0.670683)-converges to 0.6726.
+    \end{solution}
+    \newpage
+    \begin{solution}[Answer 2d-iii]
+        Iteration 0: (0,0.1) \\
+        Iteration 1: (0.35,0.684621) \\
+        Iteration 2: (0.7,0.530325) \\
+        Iteration 3: (1.05,0.692029) \\
+        Iteration 4: (1.4,0.524791) \\
+        Iteration 57: (19.95,0.721933) \\
+        Iteration 58: (20.3,0.506152) \\
+        Iteration 59: (20.65,0.721933)  \\
+        Iteration 60: (21,0.506152) - oscilatory motion continues! Period doubling bifurcation!
+    \end{solution}
+\end{document}

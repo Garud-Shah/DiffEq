@@ -1,0 +1,111 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\AtBeginSection[]{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+%Information to be included in the title page:
+\title{How To Fool People}
+\author{Garud S}
+\date{March 17th, 2025}
+\usetheme{Antibes}
+\begin{document}
+\frame{\titlepage}
+\section{Intro + Prerequisites}
+        \begin{frame}
+            \frametitle{Why do people play the LOTTERY?}
+            Well... the numbers are in. The lottery is a -EV move. \\ \pause
+            What kind of utility function rewards this behaviour? \\ \pause
+            You need to be desprate. There needs to be a sharp cutoff where you're willing to go for it. So what is this utility function?
+        \end{frame}
+        \begin{frame}
+            \frametitle{Prerequisites (see previous presentation)}
+            \begin{definition}[Relative Risk]
+                The \textit{relative risk} of a utility function is
+                \begin{align*}
+                    \hat{R_{\text{rel}}}[u(x)] = \dfrac{xu''(x)}{u'(x)}
+                \end{align*}
+            \end{definition} \pause
+                \begin{definition}[Absolute Risk]
+                    The \textit{absolute risk} of a utility function is
+                    \begin{align*}
+                        \hat{R_{\text{abs}}}[u(x)] = \dfrac{u''(x)}{u'(x)}
+                    \end{align*}
+                \end{definition}
+                \pause Most common utility functions: $\log x$, $x$
+        \end{frame}
+\section{General Math}
+        \begin{frame}
+            \frametitle{General Math Pt 1: Seperable Equation For $u'(x)^2$}
+            Say we have a risk function $r(x)$. Note that
+            \begin{align}
+                r(x) &= \dfrac{xu''(x)}{u'(x)} \\
+                ((u'(x))^2)' &= 2u'(x)u''(x) \\
+                u''(x) &= \dfrac{(u'(x)^2)'}{2u'(x)} \\
+                \dfrac{2r(x)}{x} &= \dfrac{((u'(x))^2)'}{(u'(x))^2}
+            \end{align}
+        \end{frame}
+        \begin{frame}
+            \frametitle{General Math Pt 2: General Equation For $u'(x)$}
+            Now solve:
+            \begin{align}
+                \int \dfrac{2r(x)}{x} \, dx &= \log|(u'(x))^2| + C \\
+                u'(x) &= Ae^{\int \frac{r(x)}{x} \, dx} \\
+                u(x) &= A\int e^{\int \frac{r(x)}{x} \, dx} \, dx + \\
+                &\cong \int e^{\int \frac{r(x)}{x} \, dx}
+            \end{align}
+        \end{frame}
+\section{Solving For A Specific Function + Scamming Time}
+    \subsection{Solving}
+        \begin{frame}
+            \frametitle{Let's Get Risky}
+            We need to find a way to repersent this behavior as a risk function. At some point, you're willing to take on a lot of risk. \pause However, the risk function should be continuous.
+            But you're not willing to take on a lot more risk immediately. What about $x^2/2a - 1$? This is close to flat for low values but blows up for high values. This yields: \pause
+            \begin{align}
+                u(x) &= \int e^{\int \frac{r(x)}{x} \, dx} \, dx  \\
+                &= \int e^{\int \frac{x^2/a - 1}{x} \, dx} \, dx \\
+                &= \int e^{\frac{x^2}{2a} - \log x} \, dx \\
+                &\cong \int_{1}^{t} \dfrac{1}{t} e^{\frac{t^2}{2a}} \, dt
+            \end{align}
+        \end{frame}
+    \subsection{Scamming}
+        \begin{frame} \frametitle{Let's Look At An Event}
+            Let's look at the following event (simplified lottery):\pause
+            \begin{center}
+                Pay \$$c$, with chance $p$ of winning \$$m$.
+            \end{center}
+            What is our expected return? It's $c - mp$. Let's say we want a profit margin of $k$. Then we have $c = mpk$. Now when will an unsuspecting person go for it? It's when: \pause
+            \begin{align}
+                \int_{1}^{c} \dfrac{1}{x} e^{\frac{x^2}{2a}} \, dx < p\int_{1}^{m} \dfrac{1}{x} e^{\frac{x^2}{2a}} \, dx \\
+                k \cdot \dfrac{1}{c}\int_{1}^{c} \dfrac{1}{x} e^{\frac{x^2}{2a}} \, dx < \dfrac{1}{m}\int_{1}^{m} \dfrac{1}{x} e^{\frac{x^2}{2a}} \, dx.
+            \end{align}
+        \end{frame}
+        \begin{frame} \frametitle{Irrational Decsions}
+            From last time, we know that whenever the second derivative of a utility function rises above zero, people start making irrational decisions. Let's take a look at this one, then. \\ \pause
+            \begin{align}
+                u'(x) &= \dfrac{1}{x} e^{\frac{x^2}{2a}} \\
+                u''(x)&= -\dfrac{1}{x^2}e^{\frac{x^2}{2a}} + \dfrac{x}{a}  e^{\frac{x^2}{2a}} \\
+                \dfrac{1}{x^2} &= \dfrac{x}{a} \\
+                x &= \sqrt[3]{a}.
+            \end{align}
+            This finally gives meaning to $a$: its units are \$$^3$, and its cube root is a thershold for irrational decisions. Above $\sqrt[3]{a}$, 
+            we get too enticed by the possibility of money and make poor decisions.
+        \end{frame}
+        \begin{frame}\frametitle{Questions}
+            Questions? \\~\\~\\~\\
+        \end{frame}
+        \begin{frame}
+            \begin{center}
+                Thanks for listening!
+            \end{center}
+        \end{frame}
+\end{document} 

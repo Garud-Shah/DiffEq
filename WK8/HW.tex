@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+\usepackage{style}
+\title{Differential Equations Week \textbf{7}}
+\author{Garud Shah}
+\begin{document}
+    \maketitle \newpage 
+    \begin{problem}[Problem 1]
+        \setcounter{equation}{0}
+        Find the general solution to the differential equation 
+        \begin{align}
+            y'' - 6y' + 13y = xe^3x\sin(2x).
+        \end{align}
+    \end{problem}
+    \setcounter{solution}{-1}
+        % 1.0
+        \begin{solution}[Framework for solving this problem.]
+            \hfill \break
+            \begin{enumerate}
+                \item Find the solution to the corresponding homogenous equation.
+                \item Obtain a particular solution.
+                \item Combine to get our final result.
+            \end{enumerate}
+        \end{solution}
+        % Step 1, Solution 1.1
+        \begin{solution}[Solving corresponding homogenous equation.]
+            First, homogenize (1.0):
+            \begin{align}
+                y'' - 6y + 13y = 0.
+            \end{align}
+            Now, what's the characteristic polynomial? It's $r^2-6r+13$, which produces solutions:
+            \begin{align}
+                f(x) = c_1e^{3x}\cos(2x) + c_2e^{3x}\sin(2x).
+            \end{align}
+        \end{solution}
+        % Step 2, Solution 1.2
+        \begin{solution}[Obtaining particular solution.]
+            Let's take derivatives of $cx^ke^{3x}\sin(2x)$ and plug in! We get $ck(k-1)x^{k-2}e^{3x}\sin(2x)$
+            as if $f$ is annihalted by the $n$th order constant coefficent differential operator $I$, $I[fg] = fg^{(n)}$ (we can 
+            prove this by decomposing into a bunch of linear expressions and then annihaling each part, but I won't do 
+            that here... probably has some special name I don't know) \\~\\
+            So $k=3$, and we have $6cxe^{3x}\sin(2x) = xe^{3x}\sin(2x)$ and:
+            \begin{align}
+                f_p(x) = \dfrac{1}{6}xe^{3x}\sin(2x).
+            \end{align}
+        \end{solution}
+        \begin{solution}[Finish.]
+            Add the two things to get:
+            \begin{align}
+                \boxed{f(x) = c_1e^{3x}\cos(2x) + c_2e^{3x}\sin(2x) + \dfrac{1}{6}xe^{3x}\sin(2x).}
+            \end{align}
+        \end{solution}
+        \begin{remark*}
+            The solutions for the corresponding homogenous equation are well-known to be linearly independent. \\
+            Please tell me what the name of that theorem in comments!
+        \end{remark*}
+        \newpage
+        \begin{problem}[Problem 2]
+            Solve the differential equation 
+            \begin{align}
+                y'' + 4y' = \sin^4(x).
+            \end{align}
+        \end{problem}
+        \begin{solution}
+            Substitute double angle identites:
+            \begin{align}
+                & \sin^4(x) \\ 
+                &= \left(\dfrac{1-\cos(2x)}{2}\right)^2 \\
+                &= 1/4 \cdot \left(1-2\cos(2x)+\cos^2(2x)\right) \\
+                &= \dfrac{1}{4} - \dfrac{1}{2} \cos(2x) + \dfrac{\cos(4x)-1}{2} \\
+                &= - \dfrac{1}{4} - \dfrac{1}{2} \cos(2x) + \dfrac{1}{2} \cos(4x) \\
+            \end{align}
+            and using method of undetermined coefficents (the $-1/4$ immediately becomes $-1/16 x$):
+            \begin{align}
+                \cos(kx) &= -ak^2 \sin(kx) - bk^2\cos(kx) \\
+                 &+ ak\cos(kx) - bk\sin(kx)   \\
+                &\begin{cases}
+                    -ak^2 - bk &= 0 \\ 
+                    -bk^2 + ak &= 1.
+                \end{cases} \\ 
+                b &= -ak \\
+                a(k^3+k) &= 1 \\
+                a &= \dfrac{1}{k^3 + k} \\
+                b &= -\dfrac{1}{k^2 + 1} \\
+                f_p(x) &= -\dfrac{1}{16}x + \dfrac{1}{10}\cos(2x) - \dfrac{1}{20}\cos(2x) \\
+                &- \dfrac{1}{17}\cos(4x) + \dfrac{1}{34}\cos(4x) \\ 
+                f(x) &= c_1 + c_2e^{4x}-\dfrac{1}{16}x + \dfrac{1}{10}\cos(2x) - \dfrac{1}{20}\cos(2x) \\
+                &- \dfrac{1}{17}\cos(4x) + \dfrac{1}{34}\cos(4x)
+            \end{align}
+        \end{solution}
+        \begin{problem}[Problem 3]
+            Find the general solution to 
+            \begin{align}
+                y'' + 4y' + 4y = e^{-2t} \log t.
+            \end{align}
+        \end{problem}
+        \begin{solution}
+            Note that $v(t)e^{-2t}$ in our differential operator is $v''(t)e^{-2t}$. So plugging in our particular solution the answer is:
+            \begin{align}
+                f(t) &= t \log t e^{-2t}+ ae^{-2t} + bxe^{-2t}
+            \end{align}
+        \end{solution} \newpage
+        \begin{problem}[Problem 4]
+            Solve the initial value problem 
+            \begin{align}
+                y'' - y = \dfrac{1}{x}, y(1) = 0, y'(1) = 2
+            \end{align}
+        \end{problem}
+        \begin{solution}
+            Let's use variation of parameters. The solutions to the corresponding homogenous equation are:
+            \begin{align}
+                e^x, e^{-x}
+            \end{align}
+            so:
+            \begin{align}
+                v_1'e^x + v_2'e^{-x} &= 0 \\ 
+                v_1'e^x - v_2'e^{-x} &= \dfrac{1}{x} \\
+                v_1' &= \dfrac{e^{-x}}{2x} \\
+                v_2' &= -\dfrac{e^x}{2x} \\\
+                f(x) &= c_1e^x + c_2e^{-x} + e^x \int_1^x \dfrac{e^{-t}}{2t} dt + e^{-x} \int_1^x \dfrac{e^t}{2t} dt 
+            \end{align}
+            Plugging in at $1$, we get:
+            \begin{align}
+                ec_1 + e^{-1}c_2 &= 0 \\
+                ec_1 - e^{-1}c_2 &= 1 \\
+                c_1 &= \dfrac{1}{2e} \\
+                c_2 &= \dfrac{e}{2}.
+            \end{align}
+            Thus the answer is 
+            \begin{align}
+                \boxed{
+                f(x) = \dfrac{1}{2} \left(e^{x-1} + c_2e^{-(x-1)}\right) + e^x \int_1^x \dfrac{e^{-t}}{2t} dt + e^{-x} \int_1^x \dfrac{e^t}{2t} dt 
+                .}
+            \end{align}
+        \end{solution}
+        \begin{problem}[Problem 5]
+            Solve the following differential equation:
+            \begin{align}
+                t^2y'' - 4ty' + 6y = t^3 + 1. 
+            \end{align}
+        \end{problem}
+        \begin{solution}
+            Note that $t^2,t^3$ are solutions. Ignore the $+1$, just add $1/6$ to our final solution in the end. Applying variation of parameters,
+            \begin{align}
+                v_1't^2 + v_2't^3 &= 0 \\
+                2v_1't + 3v_2't^2 &= t^2 \\
+                v_2' &= 1, v_2(t) = t \\
+                v_1' &= -t \\
+                v_1(t) &= \dfrac{-t^2}{2} \\
+                f(t) &= \dfrac{t^4}{2} + c_1t^3 + c_2t^2.
+            \end{align}
+        \end{solution}
+\end{document}

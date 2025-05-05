@@ -1,0 +1,4 @@
+MOODLE: https://moodle.loveofmath.com/course/view.php?id=337
+MYLAB: https://mylabmastering.pearson.com/?courseId=12879644#/
+ETEXT: https://plus.pearson.com/courses/finotti94275/products/122114/pages/23?locale=&platformId=1030&lms=Y
+COCALC: https://cocalc.com/projects/de822823-61a5-45ad-a4bb-f57b180abcf3/files/

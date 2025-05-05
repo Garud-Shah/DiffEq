@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+\usepackage{style}
+\title{Differential Equations Week \textbf{7}}
+\author{Garud Shah}
+\begin{document}
+    \maketitle 
+    Can you please mark the equations you have problems with in the index of comments? I'm NOT asking for that to be the number, just when you make a comment, within the \textit{text} of the comment (not the label)
+    mark the bad equation (for all future weeks too, this is a clarification of last's week's!)\newpage
+    \begin{problem}[Problem 1]
+        Solve the differential equation
+        \begin{align}
+            y'' = ay, a>=0.
+        \end{align}
+    \end{problem}
+    \begin{solution*}
+        If $a=0$ trivial, $ax+b$\\
+        We have charactersitic equation:
+        \begin{align}
+            \lambda^2 &= a \\
+            \lambda &= \pm \sqrt{a},
+        \end{align}
+        thus the answer is:
+        \begin{align}
+            c_1e^{\sqrt{a}} + c_2e^{-\sqrt{a}}.
+        \end{align}
+    \end{solution*}
+    \begin{problem}[Problem 2]
+        Solve the following IVP's:
+        \begin{enumerate}
+            \item $y''+16y=0$, $y(0)=2$, $y'(0)=0$
+            \item $y''+100y'+y=0$, $y(0)=1$, $y'(0)=0$.
+            \item $y''-6y'+8y=0$, $y(0)=1$, $y'(0)=0$.
+        \end{enumerate}
+    \end{problem}
+    \begin{solution}[Solution 2a]
+        $\omega = \sqrt{16}$, the answer is $2\cos(4t)$.
+    \end{solution}
+    \begin{solution}[Solution 2b]
+        Roots of charactersitic equation are $-50 \pm 7\sqrt{51}$, which gives us solutions $c_1e^{(-50+7\sqrt{51})t} + c_2e^{(-50+7\sqrt{51})t}$, so $c_1 +c_2 = 1$ and $c_1 - c_2 = 0$, thus answer is $\dfrac{1}{2} \left(e^{(-50+7\sqrt{51})t} + e^{(-50+7\sqrt{51})t}\right)$.
+    \end{solution}
+    \begin{solution}[Solution 2c]
+        We have roots $2$ and $4$ which means we have $c_1e^{2t}+c_2e^{4t}$, or $c_1 + c_2 = 1$ and $c_1 - c_2=0$ thus answer is $\dfrac{1}{2} \left(e^{2t} + e^{4t}\right)$.
+    \end{solution}
+    \newpage
+    \begin{problem}[Problem 3]
+        For the differential equation:
+        \begin{align}
+            I\theta'' + b\theta' + k\theta = 0,
+        \end{align}
+        when will $\theta$ oscilate?
+    \end{problem}
+    \begin{solution}
+        $b^2 < 4Ik$ by criticality criteria...
+    \end{solution}
+    \begin{problem}[Problem 4]
+        Show that for 
+        \begin{align}
+            y'' + y &= 0 \\
+            y(t) &= c_1 \cos t + c_2 \sin t,
+        \end{align}
+        \begin{enumerate}[(a)]
+            \item There is a unique solution that satisifes $y(0) = 2$ and $y(\pi/2) = 0$.
+            \item There is not a solution that satisifes $y(0) = 2$ and $y(\pi) = 0$.
+            \item There is are infinite solutions that satisifes $y(0) = 2$ and $y(\pi) = -2$.
+        \end{enumerate}
+    \end{problem}
+    \begin{solution}[Solution 4a]
+        Yes as the Wronskian for those two values is non-zero.
+    \end{solution}
+    \begin{solution}[Solution 4b]
+        As $y(0) = c_1$ and $y(\pi)=-c_1$ and $-2 \ne 0$ done.
+    \end{solution}
+    \begin{solution}[Solution 4c]
+        As $y(0) = c_1$ and $y(\pi)=-c_1$ and $-2 = 2$, $y_1$ can be anything done.
+    \end{solution} \newpage
+    \begin{problem}[Problem 5]
+        Solve the 2nd-Order Euler equation:
+        \begin{align}
+            ax^2y'' + bxy' + cy = 0.
+        \end{align}
+    \end{problem}
+    \begin{solution}
+        Note that:
+        \begin{align}
+            \dfrac{dy}{dx} = \dfrac{dy}{dv} \cdot \dfrac{dv}{dx},
+        \end{align}
+        thus when substituting $v = \log x$, we need:
+        \begin{align}
+            ay'' + by' + cy = 0.
+        \end{align}
+        Thus, if $ax^2 + bx + c$ has distinct roots $r_1$ and $r_2$ OR has a single root $r$,
+        \begin{align}
+            y(v) = c_1e^{r_1v} + c_2e^{r_2v} = c_1x^{r_1} + c_2x^{r_2} \\
+            OR \\ 
+            y(v) = c_1e^{rv} + c_2ve^{r_2v} = (c_1+c_2 \log x)x^{r}.
+        \end{align}
+    \end{solution}
+\end{document}

@@ -1,0 +1,3 @@
+/home/garuds/DiffEq/Wk6/homework/build/CMakeFiles/runTests.dir
+/home/garuds/DiffEq/Wk6/homework/build/CMakeFiles/edit_cache.dir
+/home/garuds/DiffEq/Wk6/homework/build/CMakeFiles/rebuild_cache.dir

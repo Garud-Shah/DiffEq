@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+\usepackage{gstyle}
+\title{Differential Equations Week 4}
+\author{Garud Shah}
+\begin{document}
+    \maketitle
+    NOTE: Can you talk about which equation was wrong in each of the comments, with the numbering in the document? Thanks!
+    \newpage
+    \begin{problem}[Problem 1, modified, generalized]
+        A solution of a solvent and solute flows in at a constant rate of $K_e$ L/min into a large tank that initially held $L_i$ litres of $P_1$ proportion solute. The solution inside is well-stirred and flows out of the tank at $K_o$ litres per minute. 
+        If the solution entering the tank is $P_2$ proportion solute, find the volume of the solute at $t$ minutes, and when concentration will reach $P$.
+    \end{problem}
+    \begin{solution*}
+        Note that, if $N(t)$ is the amount of solute in the tank:
+        \begin{align}
+            N'(t) &= \text{nitric acid entering} - \text{nitric acid exiting} \\ 
+            &= P_2K_e - \dfrac{K_oN(t)}{L_i + (K_e-K_o)t}^{*} \\ 
+            N(0) &= P_1 L_i \\ 
+            N'(t) &= P_2K_e - \dfrac{K_oN(t)}{L_i + (K_e-K_o)t}.
+        \end{align}
+        Ok, we have our differential equation. It's linear, so let's work out an integrating factor:
+        \begin{align}
+            N'(t) + N(t)\dfrac{K_o}{L_i + (K_e-K_o)t} &= P_2K_e\\ 
+            N'(t)\mu(t) + N(t)\mu(t)\dfrac{K_o}{L_i + (K_e-K_o)t} &= P_2K_e\mu(t)\\ 
+            \mu'(t) &= \mu(t)\dfrac{K_o}{L_i + (K_e-K_o)t} \\
+            \log |\mu(t) | &= \dfrac{K_o}{K_e -K_o}\log \left|\dfrac{L_i}{K_e - K_o} + t\right| \\ 
+            \mu(t) &= \left(\dfrac{L_i}{K_e - K_o} + t\right)^{\frac{K_o}{K_e-K_o}}. 
+        \end{align}
+        Now, do a final plug-in:
+        \begin{align}
+            \left(\dfrac{L_i}{K_e - K_o} + t\right)^{\frac{K_o}{K_e-K_o}}N(t) &= \int P_2 \dfrac{K_e}{1 + \dfrac{K_ot}{K_e - K_o}} \, dt^{*2}\\ 
+            \left(\dfrac{L_i}{K_e - K_o} + t\right)^{\frac{K_o}{K_e-K_o}}N(t) &= P_2 \dfrac{K_e}{1 + \frac{K_o}{K_e - K_o}} \left(\dfrac{L_i}{K_e - K_o} + t\right)^{\frac{K_o}{K_e-K_o} + 1} + C\\
+            \left(\dfrac{L_i}{K_e - K_o} + t\right)^{\frac{K_o}{K_e-K_o}}N(t) &= P_2 (K_e - K_o)\left(\dfrac{L_i}{K_e - K_o} + t\right)^{\frac{K_e}{K_e-K_o}} + C \\
+            N(t) &= P_2L_i + tP_2 (K_e - K_o) + \dfrac{C}{ \left(\frac{L_i}{K_e - K_o} + t\right)^{\frac{K_o}{K_e-K_o}}}.
+        \end{align}
+        Now solve at $t = 0$:
+        \begin{align}
+            P_1L_i &= P_2L_i + \dfrac{C}{ \left(\frac{L_i}{K_e - K_o}\right)^{\frac{K_o}{K_e-K_o}}} \\
+            C &= L_i(P_1 - P_2)\left(\dfrac{L_i}{K_e - K_o}\right)^{\frac{K_o}{K_e-K_o}}  \\ 
+            N(t) &= P_2L_i + tP_2 (K_e - K_o) + \dfrac{L_i(P_1 - P_2)\left(\frac{L_i}{K_e - K_o}\right)^{\frac{K_o}{K_e-K_o}}}{ \left(\frac{L_i}{K_e - K_o} + t\right)^{\frac{K_o}{K_e-K_o}}} \\
+            N(t) &= P_2(L_i + t(K_e - K_o)) + L_i(P_1 - P_2) \left(\dfrac{L_i}{L_i + (K_e - K_o)t}\right)^{\frac{K_o}{K_e-K_o}}
+        \end{align}
+        \begin{remark*}[Footnotes.]
+        * If $K_e - K_o = 0$, take the limit as $K_e - K_o$ approaches $0$. \\
+        *2 We ignore the constant term for now as it is contained in the RHS integral.
+        \end{remark*}
+    \end{solution*}
+    \begin{problem}[Problem 2]
+        A solar hot water heating system consists of a hot water tank and a solar panel. The tank has a Stefan's law $k^\circ$ K$^{-3}$s$^{-1}$. The solar panel generates 
+        $E$ MJ/hr, and the tank has a heat capacity of $H^\circ$K/MJ. If the water in the tank is initially at $A^\circ$K and the temprature outside is $B^\circ$K,
+        what will be the temprature after $t$ hours of sunlight?
+    \end{problem}
+    \begin{solution*}
+        Let $T(t)$ be the temprature of the tank at time $t$. Then (we are using Stefan's law, not Newton's and SI, not imperial because I am taking physics):
+        \begin{align}
+            \begin{cases}
+                T'(t) &= k(B^4-T(t)^4) + \dfrac{E}{H} \\ 
+                T(0) &= A
+            \end{cases}& \\
+            \int \dfrac{dT}{k(B^4 - T(t)^4) + \dfrac{E}{H}} &= t^{*} \\
+            \dfrac{1}{k} \int \dfrac{dT}{B^4 + \dfrac{E}{kH} - T^4} &= t \\ 
+            K &= \sqrt[4]{B^4 + \dfrac{E}{kH}} \\ 
+            -\dfrac{1}{k} \int \dfrac{dT}{T^4-K^4} &= t \\ 
+            -\dfrac{1}{k} \sum_{n=0}^3 \int \dfrac{A_n}{T + i^nK}dT &= t \\
+            \begin{cases}
+                A_0 + A_1 + A_2 + A_3 &= 0 \\ 
+                A_0K(i + -i + -1) + \\ 
+                A_1K(1 + -i + -1) + \\ 
+                A_2K(1 + i  + -i) + \\
+                A_3K(1 + i  + -1) &= 0 \\
+                A_0K^2(i\cdot-i + -1 \cdot i  + -i \cdot -1) + \\
+                A_1K^2(1\cdot-i + -1 \cdot -i + -1 \cdot 1) + \\ 
+                A_2K^2(i\cdot-i + 1  \cdot i  + -i \cdot 1) + \\ 
+                A_3K^2(i\cdot 1 + -1 \cdot i  + 1 \cdot -1) &= 0 \\
+                A_0K^3(i \cdot -i \cdot -1) + \\ 
+                A_1K^3(1 \cdot -i \cdot -1) + \\ 
+                A_2K^3(1 \cdot i \cdot -i)  + \\ 
+                A_3K^3(1 \cdot i \cdot -1) &= 1 \\
+            \end{cases}
+        \end{align}
+        Continue the iPFD (imaginary PFD):
+        \begin{align}
+            \begin{cases}
+                A_0 + A_1 + A_2 + A_3 &= 0 \\ 
+                -A_0 - iA_1 + A_2 + iA_3 &= 0 \\
+                A_0 - A_1 + A_2 - A_3 &= 0 \\ 
+                -A_0 + iA_1 + A_2 - iA_3 &= \dfrac{1}{K^3}. 
+            \end{cases}& \\
+            \begin{cases}
+                A_0 + A_2 &= 0 \\ 
+                A_0 - A_2 &= -\dfrac{1}{2K^3} \\ 
+                A_1 + A_3 &= 0 \\ 
+                A_1 - A_3 &= -\dfrac{i}{2K^3} \\
+            \end{cases}& \\ 
+            \left(A_0,A_1,A_2,A_3 \right) = \left(-\dfrac{1}{4K^3}, -\dfrac{i}{4K^3}, \dfrac{1}{4K^3}, \dfrac{i}{4K^3}\right).& \\~\\
+        \end{align}
+        Thus,
+        \begin{align}
+            \dfrac{1}{4kK^3} \sum_{n=0}^3 \int \dfrac{i^n}{T + i^nK}dT &= t \\ 
+            \dfrac{1}{4kK^3} \sum_{n=0}^3 i^n \log (T + i^n K) &= t+C \\ 
+            \sum_{n=0}^3 i^n \log (T + i^n K) &= 4kK^3t + C \\ 
+            e^{\sum_{n=0}^3 i^n \log (T + i^n K)} &= Ce^{4kK^3t} \\
+            \prod_{n=0}^3 (T+i^nK)^{i^n}&= Ce^{-4kK^3t} \\ 
+            \left)\dfrac{T+K}{T-K}\right)\left(\dfrac{T+iK}{T-iK}\right)^i &= Ce^{4kK^3t} \\
+            U &= \dfrac{T}{K} \\ 
+            \dfrac{U+1}{U-1}\left(\dfrac{U+i}{U-i}\right)^i &= Ce^{4kK^3t} \\
+        \end{align}    
+        (I'll leave this as an implicit solution.)
+    \end{solution*}
+    \begin{problem}[Problem 3a]
+        A rocket with initial mass $m_0$ kg is launched vertically fromc the ground. It expels gas at a rate of $\alpha$ m/s and at a constant velocity of $\beta$ m/s relative the the rocket.
+        Determine $x'(t)$ and $x(t)$ if $x(0) = D$.
+    \end{problem}
+    \begin{solution*}
+        We know the following:
+        \begin{align}
+            (m_0 - \alpha t) x''(t) - \alpha \beta &= -\dfrac{GMm}{x(t)^2}.
+        \end{align}
+        Note that:
+        \begin{align}
+            & (x'(t)^2)' \\
+            &= 2x''(t)x'(t)
+        \end{align}
+        Thus:
+        \begin{align}
+            (m_0 - \alpha t) \dfrac{(x'(t))^2}{x'(t)} - \alpha \beta &= -\dfrac{GM(m_0 -\alpha t)}{x(t)^2} \\
+            \dfrac{1}{2}(m_0-\alpha t) ((x'(t))^2)' - \alpha \beta x'(t) &= -\dfrac{GM(m_0 - \alpha t)}{x(t)^2} \\
+            \dfrac{1}{2}(m_0-\alpha t) x'(t)^2 - \alpha \beta x(t) &= C + \dfrac{GM(m_0 - \alpha t)}{x(t)} \\
+            C &= -\dfrac{GMm_0}{D}-\alpha \beta D \\ 
+            x'(t) &= \sqrt{\dfrac{\alpha \beta}{m_0 - \alpha t} (x(t)-D) + \dfrac{GM(m_0 - \alpha t)}{x(t)} -\dfrac{GMm_0}{D}-\alpha \beta D  }
+        \end{align}
+        (I am not able to solve this)
+    \end{solution*}
+    *please give me full credit on 2 and 3 on corrections - I'm submitting this mainly as a placeholder so you know I did work for this week :)
+\end{document}

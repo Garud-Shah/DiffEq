@@ -1,0 +1,465 @@
+\documentclass[11pt]{article}
+\usepackage{style}
+\title{Differential Equations Quarterly \textbf{2}}
+\author{Garud Shah}
+\date{March 28th, 2025}
+\begin{document}
+    \maketitle \newpage 
+    %----------------------------[Problem 1]-------------------------
+    \newpage \setcounter{equation}{-1}  \begin{problem} [Problem 1]
+        Suppose we have a mass-spring system modeled by the equation
+        \begin{align}
+            y'' + 2y' + 2y = \cos t.
+        \end{align}
+        \begin{enumerate}[(a)]
+            \item Find the general solution to the equation.
+            \item Describe the behaviour as $t$ goes to infinity.
+        \end{enumerate}
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Like any non-homogenous differential equation, we'll find the homogenous solution and then find a non-homogenous particular solution.
+        \end{remark}
+        \begin{solution}[Solution 1a]
+            The corresponding homogenous equation is
+            \begin{align}
+                y'' + 2y' + 2y = 0.
+            \end{align}
+            Consider its characteristic equation:
+            \begin{align}
+                r^2+2r+2,
+            \end{align}
+            which gives us roots 
+            \begin{align}
+                -1+i, -1-i
+            \end{align}
+            so the general solution of the corresponding homogenous equation is:
+            \begin{align}
+                e^{-t}\sin t + e^{-t}\cos t.
+            \end{align}
+        \end{solution}
+        \newpage
+        \begin{solution}[Solution 1b]
+            Set 
+            \begin{align}
+                f_p = A\cos t + B\sin t.
+            \end{align}
+            Plug in to the differential equation:
+            \begin{align}
+                \cos t &= 2(A\cos t+B\sin t) \\ 
+                &+ 2(A\cos t+B\sin t)' \\
+                &+ (A\cos t+B\sin t)'' \\
+                &= (A+2B)\cos t+(B-2A)\sin t. \\
+                A+2B &= 1 \\
+                B-2A &= 0 \\
+                A = 1/5, B &= 2/5. \\
+                f_p(t) &= \dfrac{1}{5}\cos t + \dfrac{2}{5}\sin t \\
+                f(t) &= \dfrac{1}{5}\cos t + \dfrac{2}{5}\sin t + e^{-t}\cos t
+            \end{align}
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            Do our Wronskian Sanity Check:
+            \begin{align}
+                0 &= e^{-t}\cos t (-e^{-t}\sin t + e^{-t} \cos t) - e^{-t}\sin t (-e^{-t}\cos t -e^{-t} \sin t) \\
+                &= e^{-2t}(\cos t (-\sin t + \cos t) - \sin t (\cos t - \sin t)) \\ 
+                &= e^{-2t},
+            \end{align}
+            which is impossible so by E+U theorem, we have the unique solution for all initial value problems. \\~\\
+            Now do the back-substitution check for our particular solution:
+            \begin{align}
+                \cos t &= 2\left(\dfrac{1}{5}\cos t + \dfrac{2}{5}\sin t\right) \\ 
+                &+ 2\left(\dfrac{1}{5}\cos t + \dfrac{2}{5}\sin t\right)' \\
+                &+ \left(\dfrac{1}{5}\cos t + \dfrac{2}{5}\sin t\right)'' \\ 
+                &= \left(\dfrac{2}{5}-\dfrac{1}{5}+\dfrac{4}{5}\right) \cos t + \left(\dfrac{4}{5}-\dfrac{2}{5}-\dfrac{2}{5}\right) \sin t \\
+                &= \cos t 
+            \end{align}
+        \end{remark}
+    \newpage \setcounter{equation}{-1}
+    %----------------------------[Problem 2]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 2a, harder]
+        Find the general solution to:
+        \begin{align}
+            y'' - 4y = t^2\cos(2t)
+        \end{align}
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Like any non-homogenous differential equation, we'll find the homogenous solution and then find a non-homogenous particular solution.
+        \end{remark}
+        \begin{solution}[Solution 2ai]
+            The homogenous equation:
+            \begin{align}
+                y'' = 4y,
+            \end{align}
+            roots of characteristic polynomial:
+            \begin{align}
+                r^2-4 = 0, r = \pm 2,
+            \end{align}
+            general solution:
+            \begin{align}
+                c_1e^{2t} + c_2e^{-2t}.
+            \end{align}
+        \end{solution}
+        \begin{solution}[Solution 2aii]
+            We use the Annihaltor Method to get the form:
+            \begin{align}
+                &t^2(A_2\cos(2t) + B_2\sin(2t)) + \\
+                &t^1(A_1\cos(2t) + B_1\sin(2t)) + \\
+                &t^0(A_0\cos(2t) + B_0\sin(2t)),
+            \end{align}
+            but it's \textit{very} annoying to work out a particular solution so I'll stop here.
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            Wronskian Sanity Check:
+            \begin{align}
+                0 &= -2e^{2t}e^{-2t} - 2e^{-2t}e^{2t} \\
+                &= -4
+            \end{align}
+            which is impossible so by E+U theorem, we have the unique solution for all initial value problems. \\~\\
+            Back-substitution sanity check: none as I didn't work out a particular solution.
+        \end{remark}
+    %----------------------------[Problem 3]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 2b, harder]
+        Find the general solution to:
+        \begin{align}
+            y'' - 4y = e^{2t}
+        \end{align}
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Like any non-homogenous differential equation, we'll find the homogenous solution and then find a non-homogenous particular solution.
+        \end{remark}
+        \begin{solution}[Solution 2bi]
+            The homogenous equation:
+            \begin{align}
+                y'' = 4y,
+            \end{align}
+            roots of characteristic polynomial:
+            \begin{align}
+                r^2-4 = 0, r = \pm 2,
+            \end{align}
+            general solution:
+            \begin{align}
+                c_1e^{2t} + c_2e^{-2t}.
+            \end{align}
+        \end{solution}
+        \begin{solution}[Solution 2bii]
+            Try $Cte^{2t}$. Note that:
+            \begin{align}
+                & (D+2)(D-2)Cte^2t \\
+                &= (D+2)Ce^{2t} \\
+                &= 4Ce^{2t},
+            \end{align}
+            so $C = 1/4$ and:
+            \begin{align}
+                f_p(t) &= \dfrac{1}{4}te^{2t} \\
+                f(t) &= \dfrac{1}{4}te^{2t} + c_1e^{2t} + c_2e^{-2t}.
+            \end{align}
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            Wronskian Sanity Check:
+            \begin{align}
+                0 &= -2e^{2t}e^{-2t} - 2e^{-2t}e^{2t} \\
+                &= -4
+            \end{align}
+            which is impossible so by E+U theorem, we have the unique solution for all initial value problems. \\~\\
+            Back-substitution sanity check:
+            \begin{align}
+                e^{2x} &= -4 \cdot \dfrac{1}{4}te^{2t} + \left(\dfrac{1}{4}te^{2t}\right)'' \\ 
+                &= -te^{2t}+te^{2t}+\dfrac{1}{2}e^{2t} \cdot 2 \\
+                &= e^{2t}. 
+            \end{align}
+        \end{remark}
+    %----------------------------[Problem 4]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 2c, harder]
+        Find the general solution to:
+        \begin{align}
+            y'' +3y' + 2y = t^2e^{-t}
+        \end{align}
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Like any non-homogenous differential equation, we'll find the homogenous solution and then find a non-homogenous particular solution.
+        \end{remark}
+        \begin{solution}[Solution 2ci]
+            The corresponding homogenous equation:
+            \begin{align}
+                y'' + 3y + 2 &= 0 \\ 
+                (D+1)(D+2)y &= 0 \\ 
+                y(t) &= e^{-t} + e^{-2t}. 
+            \end{align}
+        \end{solution}
+        \begin{solution}[Solution 2cii]
+            Guess $cx^3e^{-t}$. Plug in to get:
+            \begin{align}
+                (D+2)(D+1)(ct^3e^{-t}) &= t^2e^{-t} \\
+                3c(D+2)(t^2e^{-t}) &= t^2e^{-t} \\
+                6cte^{-t} + 3ct^2e^{-t} &= t^2e^{-t}.
+            \end{align}
+            Now let $c = 1/3$. OK, now we've reduced the inhomogenity to $2te^{-t}$. Then subtracting $t^2e^{-t}$ reduce to $2e^{-t}$ and finally adding $2te^{-t}$ completes the redution. \\~\\
+            This gives:
+            \begin{align}
+                f_p(t) &= \dfrac{1}{3}t^3e^{-t} - t^2e^{-t} + 2te^{-t} \\
+                f(t) &= \dfrac{1}{3}t^3e^{-t} - t^2e^{-t} + 2te^{-t} + c_1e^{-t} + c_2e^{-2t}.
+            \end{align}
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            Wronskian Sanity Check:
+            \begin{align}
+                0 &= -2e^{-t}e^{-2t} + e^{-2t}e^{-t} \\
+                &= e^{-3t}
+            \end{align}
+            which is impossible so by E+U theorem, we have the unique solution for all initial value problems. \\~\\
+            Back-substitution sanity check:
+            \begin{align}
+                t^2e^{-t} &= (D+2)(D+1)\left(\dfrac{1}{3}t^3 - t^2 + 2t\right)e^{-t} \\
+                &= \left(t^2 - 2t + 2 + 2t - 2\right)e^{-t} \\
+                &= t^2e^{-t}
+            \end{align}
+        \end{remark}
+    %----------------------------[Problem 5]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 2d. harder]
+        Find the general solution to:
+        \begin{align}
+            y'' +2y' + y = e^{-t} + t^2\cos t
+        \end{align}
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Like any non-homogenous differential equation, we'll find the homogenous solution and then find a non-homogenous particular solution.
+        \end{remark}
+        \begin{solution}[Solution 2di]
+            The homogenous equation:
+            \begin{align}
+                y'' + 2y' + y = 0,
+            \end{align}
+            roots of characteristic polynomial:
+            \begin{align}
+                (r+1)^2 = 0, r = -1 \, (2),
+            \end{align}
+            general solution:
+            \begin{align}
+                c_1e^{-t} + c_2xe^{-t}.
+            \end{align}
+        \end{solution}
+        \begin{solution}[Solution 2dii]
+            Note that $e^{-t}$ will yield $\dfrac{1}{2}x^2e^{-t}$ just plugging in with differential operators,
+            and for $t^2\cos t$ we should have something like:
+            \begin{align}
+                &t^2(A_2\cos(2t) + B_2\sin(2t)) + \\
+                &t^1(A_1\cos(2t) + B_1\sin(2t)) + \\
+                &t^0(A_0\cos(2t) + B_0\sin(2t)),
+            \end{align}
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            Wronskian Sanity Check:
+            \begin{align}
+                0 &= -xe^{-t}e^{-t} - e^{-t}(e^{-t}-xe^{-t}) \\
+                &= e^{-2t}
+            \end{align}
+            which is impossible so by E+U theorem, we have the unique solution for all initial value problems. \\~\\
+            Back-substitution sanity check: none as no particular solution derived.
+        \end{remark}
+    %----------------------------[Problem 6]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 3]
+        Find the general solution to:
+        \begin{align}
+            x^2y'' + 4xy' + 2y = e^x
+        \end{align}
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Like any non-homogenous differential equation, we'll find the homogenous solution and then find a non-homogenous particular solution.
+        \end{remark}
+        \begin{solution}[Solution 3a]
+            This is a Cauchy-Euler differential equation. The homogenized version is:
+            \begin{align}
+                x^2y'' + 4xy' + 2y = 0,
+            \end{align}
+            and the characteristic equation:
+            \begin{align}
+                r(r-1) + 4r + 2 &= 0 \\
+                (r+1)(r+2) &+ 0, r= -1,-2.
+            \end{align}
+        \end{solution}
+        \begin{solution}[Solution 3b]
+            Now let's use Variation Of Parametrs! We have:
+            \begin{align}
+                \dfrac{v_1'}{x} + \dfrac{v_2'}{x^2} &= 0 \\
+                \dfrac{v_1'}{x^2} + \dfrac{2v_2'}{x^3} &= -\dfrac{e^x}{x^2} \\
+                v_2' &= -xe^x \\
+                v_2 &= e^x-xe^x \\
+                v_1' &= e^x \\
+                v_1 &= e^x \\
+                f_p &= \dfrac{e^x}{x^2} \\
+                y(x) &= \dfrac{e^x + c_1x + c_2}{x^2}.
+            \end{align}
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            Wronskian Sanity Check:
+            \begin{align}
+                0 &= \dfrac{1}{x^3},
+            \end{align}
+            which is impossible so by E+U theorem, we have the unique solution for all initial value problems. \\~\\
+            Back-substitution sanity check: not doing as it's very annoying.
+        \end{remark}
+    %----------------------------[Problem 7]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 4]
+        Find the general solution to:
+        \begin{align}
+            x^2y''- x(x + 2)y' + (x + 2)y = 0
+        \end{align}
+        and over what intervals we are guarentted a unique solution.
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Get a solution, use reduction of order then use the Wronskian to finish.
+        \end{remark}
+        \begin{solution}[Solution 4a]
+            Note that $x$ is a solution. Now let $y = fx$ and:
+            \begin{align}
+                0 &= x^2(f''x + f') - x(x+2)(f'x + f) + (x+2)fx \\
+                &= x^3f'' + (x^3+3x^2)f' \\
+                f' &= e^{\int 1 + \dfrac{3}{x} dx} \\
+                &= x^3e^x \\
+                f(x) &= x^3e^x - 3x^2e^x + 6xe^x - 6e^x \\ 
+                y(x) &= c_1x + c_2(x^3e^x - 3x^2e^x + 6xe^x - 6e^x)
+            \end{align}
+        \end{solution}
+        \begin{solution}[Solution 4b]
+            Take the Wronskian to get:
+            \begin{align}
+                0 &= x^4e^{x} -( x^3e^x - 3x^2e^x + 6xe^x - 6e^x) \\
+                &= x^4 - x^3 + 3x^2 - 6x + 6 
+            \end{align}
+            and the roots are the $x$-values where solutions may converge and diverge. The intervals between the roots and plus/minus infinity are the 
+            intervals we are guarenteed a unique solution.
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            NONE!
+        \end{remark}
+    %----------------------------[Problem 8]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 5a, harder]
+        Derive Euler's method via the 1st order E+U operator formula (Picard's Method).
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Plug in an integral approximation formula into Picard's Method.
+        \end{remark}
+        \begin{solution}[Solution 5a]
+            You use Picard Integral form of first-order differential equations:
+            \begin{align}
+                y(x_1) &= y_0 + \int_{x_0}^{x_1} f(x,y(x)) dx,
+            \end{align}
+            and to get $y_1$ we plug in a zeroth order approximation (left rieman sum) for the RHS integral,
+            which is a very simple but poor 1st order approximation that is numerically unstable for $h>0.15$ and only 
+            produces decent results when $h < 10^{-5}$.
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            None!
+        \end{remark}
+    %----------------------------[Problem 9]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 5b, harder]
+        Derive Improved Euler via the 1st order E+U operator formula (Picard's Method).
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Plug in an integral approximation formula into Picard's Method and predictor-corrector it out.
+        \end{remark}
+        \begin{solution}[Solution 5b]
+            You use Picard Integral form of first-order differential equations:
+            \begin{align}
+                y(x_1) &= y_0 + \int_{x_0}^{x_1} f(x,y(x)) dx
+            \end{align}
+            and to get $y_1$ we plug in a 1st order approximation (left rieman sum) for the RHS integral to get:
+            \begin{align}
+                y_1 &= y_0 + h\left(\dfrac{f(x_0,y_0) + f(x_1,y_1)}{2}\right)
+            \end{align}
+            but now to make this explicit substitute euler for the implicit $y_1$:
+            \begin{align}
+                y_1 &= y_0 + h\left(\dfrac{f(x_0,y_0) + f(x_1,y_0+hf(x_0,y_0))}{2}\right)
+            \end{align}which is a less simple but much better 2nd order approximation that is numerically stable and
+            produces good results when $h < 10^{-4}$.
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            None!
+        \end{remark}
+    %----------------------------[Problem 10]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 5c]
+        How is RK4 constructed?
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{solution}[Answer 5c]
+            You use Picard Integral form of first-order differential equations:
+            \begin{align}
+                y(x_1) &= y_0 + \int_{x_0}^{x_1} f(x,y(x)) dx,
+            \end{align}
+            and to get $y_1$ we plug in a second order approximation (Simpson's Rule) for the RHS integral, then use Euler/Improved Euler
+            as predictor-correctors to get rid of implicitness on the RHS to end up with a very good 4th approximation that is complicated but still computationally 
+            very cheap and extremely accurate for $h < 10^{-3}$.
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            None!
+        \end{remark}
+        %----------------------------[Problem 11]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 6a]
+        Find the numerical approximation for Euler's method after $n$ steps of step size $h$ for the differential equation:
+        \begin{align}
+            y' = - \lambda y.
+        \end{align}
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Plug in to Euler's Method and use induction.
+        \end{remark}
+        \begin{solution}[Solution 6a]
+            We get:
+            \begin{align}
+                y_1 &= y_0 -\lambda hy_0 \\
+                &= y_0(1-\lambda h).\\
+                y_n &= (1-\lambda h)y_{n-1} \\
+                &= (1-\lambda h)^ny_0.
+            \end{align}
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            None!
+        \end{remark}
+    %----------------------------[Problem 12]-------------------------
+    \newpage \setcounter{equation}{-1} \begin{problem} [Problem 6b]
+        Find the numerical approximation for the trapezoidal method after $n$ steps of step size $h$ for the differential equation:
+        \begin{align}
+            y' = - \lambda y.
+        \end{align}
+    \end{problem}
+        %----------------------------[Solution Steps]-------------------------
+        \begin{remark}[Method.]
+            Plug in to trapezoidal method and use induction.
+        \end{remark}
+        \begin{solution}[Solution 6b]
+            We have:
+            \begin{align}
+                y_1 &= y_0 + h\left(\dfrac{f(x_0,y_0) + f(x_1,y_1)}{2}\right) \\
+                y_1 &= y_0 + h\left(\dfrac{-\lambda y_0 -\lambda y_1}{2}\right) \\
+                y_1\left(1 + \dfrac{\lambda h}{2}\right) &= y_0\left(1 - \dfrac{\lambda h}{2}\right) \\
+                y_1 &= y_0 \left(\dfrac{1-\lambda h/2}{1+\lambda h/2} \right) \\
+                y_n &= y_0 \left(\dfrac{1-\lambda h/2}{1+\lambda h/2} \right)^n
+            \end{align}
+        \end{solution}
+        %----------------------------[Footnotes]-------------------------
+        \begin{remark}[Footnotes.]
+            None!
+        \end{remark}
+        \newpage 
+        This took me a bit under two and a half hours - three if you include document setup time.
+\end{document}

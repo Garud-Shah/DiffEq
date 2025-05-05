@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Intro + Prerequisites}{2}{0}{1}
+\beamer@sectionintoc {2}{General Math}{9}{0}{2}
+\beamer@sectionintoc {3}{Solving For A Specific Function + Scamming Time}{12}{0}{3}
+\beamer@subsectionintoc {3}{1}{Solving}{13}{0}{3}
+\beamer@subsectionintoc {3}{2}{Scamming}{16}{0}{3}

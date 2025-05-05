@@ -1,0 +1,88 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\AtBeginSection[]{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%Information to be included in the title page:
+\title[Climate Change Differential Equations]{\normalsize A Brief Model Of \\
+\Huge Climate Change}
+\author{Garud S}
+\date{March 17th, 2025}
+\usetheme{Antibes}
+\begin{document}
+\frame{\titlepage}
+\section{What does the future hold?}
+    \begin{frame}\frametitle{Climate Change}
+        It's a thing, turns out. \\
+        But how bad is it? For that we need to consider models. \\
+    \end{frame}
+    \begin{frame}\frametitle{Modeling Parameters}
+        There are three factors: \\
+        $G_C$, carbon-containg greenhouse gases (this is what we effect) \\
+        $T$, global average temprature \\ 
+        $G_O$, basically water whose concentration is effected by heat. This will fill up to roughly 50\% concentration.
+    \end{frame}
+\section{Mathematical Modeling}
+    \begin{frame}\frametitle{Model: CO$_2$}
+        Let $h(t)$ be the non-natural addition/removal (this is what ``net zero'' is about) of greenhouse gases into the atmospeher by us. Let $N$ be the natural addition of carbon-containg greenhouse gases. How do we model natural removal?
+        We model the removal with linear approximation, with removal capacity being $G_Cc$ where $c$ is a constant. (Any constant removal is factored into $N$, 
+        so we replace $N$ with $\Delta_N$.) Note that at standard GHG level, $S$, with $u(t)=0$, $G_C'=0$ and $-cS + \Delta_N=0$ so $c = \dfrac{\Delta_N}{S}$.
+        So:
+        \begin{align}
+            G_C' &= h(t) + \Delta_N - \dfrac{G_C\Delta_N}{S}.
+        \end{align}
+    \end{frame}
+    \begin{frame}\frametitle{Model: $T$}
+        We know that heat comes in naturally, and it leaves naturally. This term is $\Delta_T$. However, $\gamma_C G_C + \gamma_O G_0$
+        amount of heat is reflected back. So,
+        \begin{align}
+            T' &= \Delta_T + \gamma_C G_C + \gamma_O G_O.
+        \end{align}
+        (Heat is in celsius!)
+    \end{frame}
+    \begin{frame}\frametitle{Model: Water}
+        This is directly related to temprature, so it's just the capacity that's filled. That is:
+        \begin{align}
+            G_O &= cT + K.
+        \end{align}
+    \end{frame}
+    \begin{frame}\frametitle{Wait-This-Can-Be-Solved}
+        It turns out \textit{water can be just plugged in, carbon dioxide is just a 1st order linear, 
+        so temprature is just a 1st order linear!}
+    \end{frame}
+\section{Solving The Differential Equation}
+\begin{frame}\frametitle{Carbon Dioxide}
+    \begin{align}
+        G_C' &= h(t) + \Delta_N - \dfrac{G_C\Delta_N}{S}
+    \end{align}
+    $\text{ }$\\~\\~\\~\\~\\
+\end{frame}
+\begin{frame}\frametitle{Temprature}
+    \begin{align}
+        T' &= \Delta_T + \gamma_C G_C + \gamma_O (cT + K).   
+    \end{align}
+    $\text{ }$\\~\\~\\~\\~\\
+\end{frame}
+\begin{frame}\frametitle{Desmos Graphs}
+    
+\end{frame}
+    \section{End}
+        \begin{frame}\frametitle{Questions}
+            Questions? \\~\\~\\~\\
+        \end{frame}
+        \begin{frame}
+            \begin{center}
+                Thanks for listening!
+            \end{center}
+        \end{frame}
+\end{document} 
