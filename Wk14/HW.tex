@@ -34,7 +34,7 @@
             \item $\LP [t^2 \cos bt]$
         \end{enumerate}
     \end{problem}
-    \begin{solution}[Solution 2a] Note that 
+    \begin{solution} Note that 
         \begin{align}
             \LP [t^n f(t)] &= (-D)^nF(s) \\
             \LP [\cos bt] &= \dfrac{s}{b^2+s^2} \\
@@ -43,7 +43,7 @@
             &= \dfrac{s^2-b^2}{(b^2+s^2)^2}.
         \end{align}
     \end{solution}
-    \begin{solution}[Solution 2b] Note that 
+    \begin{solution} Note that 
         \begin{align}
             \LP [t^n f(t)] &= (-D)^nF(s) \\
             \LP [t \cos bt] &= \dfrac{s^2-b^2}{(b^2+s^2)^2} \\
@@ -163,21 +163,31 @@
         \end{align}
         and note that for our forcing function, that is:
         \begin{align}
-            \boxed{3\sin t - 3\sin t u(x-2\pi).}
+            \boxed{3\sin t - 3\sin t \cdot u(x-2\pi).}
         \end{align}
+    \end{solution}
+    \begin{solution}
         \textbf{Step 2.} Take the Laplace Transform and solve for $\LP[y]$. \\
         Taking the Laplace transform, we get:
         \begin{align}
-            \LP[y''(t) + 4y] &= \LP[3\sin t - 3\sin t u(x-2\pi)] \\
-            (s^2+4)\LP[y] - sy(0)-y'(0) &= \dfrac{3(1-e^{2\pi})}{1+s^2}
+            \LP[y''(t) + 4y] &= \LP[3\sin t - 3\sin t \cdot u(x-2\pi)] \\
+            (s^2+4)\LP[y] - sy(0)-y'(0) &= \dfrac{3(1-e^{2\pi s})}{1+s^2}
         \end{align}
         \begin{align}
             \boxed{\LP[y] = \dfrac{3}{(1+s^2)(4+s^2)} - \dfrac{3e^{2\pi s}}{(1+s^2)(4+s^2)}+ \dfrac{s-3}{s^2+4}}
         \end{align}
-        \textbf{Step 2.} Take the Inverse Laplace Transform and solve for $u$. \\
+    \end{solution}
+    \newpage
+    \begin{solution}
+        \textbf{Step 3.} Take the Inverse Laplace Transform and solve for $u$. \\
         Taking the inverse Laplace transform, we get:
         \begin{align}
-            \boxed{\LP[y] = \dfrac{3}{(1+s^2)(4+s^2)} - \dfrac{3e^{2\pi s}}{(1+s^2)(4+s^2)}+ \dfrac{s-3}{s^2+4}}
+            \LP[y] &= \dfrac{3}{(1+s^2)(4+s^2)} - \dfrac{3e^{2\pi s}}{(1+s^2)(4+s^2)}+ \dfrac{s-3}{s^2+4} \\
+            y&= \LP^{-1} \left[\dfrac{3}{(1+s^2)(4+s^2)} - \dfrac{3e^{2\pi s}}{(1+s^2)(4+s^2)}+ \dfrac{s-3}{s^2+4}\right] \\
+            &= \cos(2t) - \dfrac{3}{2}\sin(2t) + 3(1-u(t-2\pi))\LP^{-1} \left[\dfrac{3}{(1+s^2)(4+s^2)} \right] \\
+            &= \cos(2t) - \dfrac{3}{2}\sin(2t) \\
+            &+ 3(1-u(t-2\pi))\LP^{-1} \left[\dfrac{1}{(1+s^2)}-\dfrac{1}{(4+s^2)} \right] \\
+            &= \boxed{3(1-u(t-2\pi))\left(\sin(t)-\dfrac{1}{2}\sin(2t)\right) + \cos(2t) - \dfrac{3}{2}\sin(2t).}
         \end{align}
     \end{solution}
 \end{document}
