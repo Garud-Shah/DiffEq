@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.1.6)  5 MAY 2025 15:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.1.6)  5 MAY 2025 19:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -929,7 +929,7 @@ Package pdftex.def Info: 41.png  used on input line 156.
 <43.png, id=110, 602.25pt x 602.25pt>
 File: 43.png Graphic file (type png)
 <use 43.png>
-Package pdftex.def Info: 43.png  used on input line 162.
+Package pdftex.def Info: 43.png  used on input line 163.
 (pdftex.def)             Requested size: 180.67639pt x 180.67639pt.
  [7] [8 <./41.png> <./43.png>] (./HW.aux)
  ***********
@@ -948,7 +948,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  138i,20n,143p,1024b,1313s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on HW.pdf (8 pages, 3384454 bytes).
+Output written on HW.pdf (8 pages, 3384966 bytes).
 PDF statistics:
  225 PDF objects out of 1000 (max. 8388607)
  172 compressed objects within 2 object streams

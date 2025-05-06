@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1746485659.75208 "/home/garuds/DiffEq/Wk11/HW.tex" "HW.pdf" "HW" 1746485662.40051 0
+["pdflatex"] 1746498103.15603 "/home/garuds/DiffEq/Wk11/HW.tex" "HW.pdf" "HW" 1746498105.55875 0
   "/etc/texmf/web2c/texmf.cnf" 1736024936.47851 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/garuds/DiffEq/Wk11/HW.tex" 1746485657.07784 6302 27a53a3a15d663e28a9a645b8202f9de ""
+  "/home/garuds/DiffEq/Wk11/HW.tex" 1746498100.13174 6500 fbb5f8271fa8a9816f1e85985319f4de ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -212,10 +212,10 @@
   "3.png" 1746412955.47336 412525 58ea2c19136d7ac5e498060cb3f1ff52 ""
   "41.png" 1746459546.14295 356211 bdb948cc859f0bb43d2265e38a4fbb6d ""
   "43.png" 1746485581.36646 472086 4b5f404fe182c12d635d2a45a46d8cfa ""
-  "HW.aux" 1746485662.33615 3576 6cbeb678afab2e853a5cefbccadeac1b "pdflatex"
-  "HW.out" 1746485660.29069 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "HW.pre" 1746485660.10738 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "HW.tex" 1746485657.07784 6302 27a53a3a15d663e28a9a645b8202f9de ""
+  "HW.aux" 1746498105.49262 3575 5e232967ea85ee139c9edf15fa015c86 "pdflatex"
+  "HW.out" 1746498103.69274 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "HW.pre" 1746498103.50025 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "HW.tex" 1746498100.13174 6500 fbb5f8271fa8a9816f1e85985319f4de ""
   "gstyle.sty" 1746412955.4832 7147 fc2e49f1d9ee2bd842f5a1665492ed27 ""
   (generated)
   "HW.aux"
