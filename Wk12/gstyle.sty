@@ -1,0 +1,141 @@
+\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage[shortlabels]{enumitem}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs}
+\usepackage{asymptote}
+\usepackage[colorlinks]{hyperref}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage[headsepline]{scrlayer-scrpage}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\graphicspath{./}
+
+\usepackage{amsfonts}
+\usepackage[framemethod=TikZ]{mdframed}
+\makeatletter
+\newcounter{subsubparagraph}[subparagraph]
+\renewcommand\thesubsubparagraph{
+  \thesubparagraph.\@arabic\c@subsubparagraph}
+\newcommand\subsubparagraph{
+  \@startsection{subsubparagraph}    % counter
+    {6}                              % level
+    {\parindent}                     % indent
+    {3.25ex \@plus 1ex \@minus .2ex} % beforeskip
+    {-1em}                           % afterskip
+    {\normalfont\normalsize\bfseries}}
+\newcommand\l@subsubparagraph{\@dottedtocline{6}{10em}{5em}}
+\newcommand{\subsubparagraphmark}[1]{}
+\makeatother
+\setcounter{tocdepth}{10}
+\setcounter{secnumdepth}{10}
+% section hacks
+\let\stdsubsection\subsection
+\renewcommand\subsection{\newpage\stdsubsection}
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+\let\stdpart\part
+\renewcommand\part{\newpage\stdpart}
+\let\stdsubparagraph\subparagraph
+\renewcommand\paragraph{\sffamily\stdsubparagraph\hfill\break}
+\renewcommand\subparagraph{\sffamily\stdsubparagraph\hfill\break}
+\addtolength{\textheight}{3.14cm}
+
+% Sets
+    \providecommand{\CC}{\mathbb C}
+    \providecommand{\FF}{\mathbb F}
+    \providecommand{\NN}{\mathbb N}
+    \providecommand{\QQ}{\mathbb Q}
+    \providecommand{\RR}{\mathbb R}
+    \providecommand{\ZZ}{\mathbb Z}
+% Calculus
+    \providecommand{\LP}{\mathscr L}
+    \providecommand{\del}{\partial}
+% Various Useful Commands
+    \providecommand{\ord}{\text{ord}}
+    \providecommand{\dg}{^\circ}
+    \providecommand{\ii}{\item}
+    \providecommand{\alert}{\textbf}
+    \providecommand{\opname}{\operatorname}
+    \providecommand{\ts}{\textsuperscript}
+% Stuff For Wrtitting Proofs
+    \providecommand{\CTCD}{\textcolor{red}{\textbf{contradiction.}}}
+    \providecommand{\BCID}{\textcolor{blue}{\textbf{Base Case. }}}
+    \providecommand{\IHID}{\textcolor{TealBlue}{\textbf{Inductive Hypothesis. }}}
+    \providecommand{\ISID}{\textcolor{TealBlue}{\textbf{Inductive Step. }}}
+    \providecommand{\NOAL}{\textcolor{red}{\textbf{No.}}}
+    \providecommand{\YSAL}{\textcolor{ForestGreen}{\textbf{Yes.}}}
+    \providecommand{\DNAL}{\textcolor{ForestGreen}{\textbf{\checkmark}}}
+    \providecommand{\FSAL}{For the sake of}
+\numberwithin{section}{part}
+% hacks for arc
+    \providecommand{\tarc}{\mbox{\large$\frown$}}
+    \providecommand{\arc}[1]{\stackrel{\tarc}{#1}}
+\reversemarginpar
+%BOX STYLES
+\mdfdefinestyle{mdbluebox}{roundcorner=10pt,innerbottommargin=9pt,
+    linecolor=blue,backgroundcolor=TealBlue!5,linewidth=1pt,}
+\declaretheoremstyle[headfont=\sffamily\bfseries\color{MidnightBlue},
+    mdframed={style=mdbluebox},headpunct={\\[3pt]},postheadspace=0pt,]{thmbluebox}
+\mdfdefinestyle{mdorangebox}{frametitlefont=\bfseries,innerbottommargin=8pt,
+    nobreak=true,backgroundcolor=Orange!5,linecolor=Orange!70!Black,}
+\declaretheoremstyle[headfont=\bfseries\color{Orange!50!Black},
+    mdframed={style=mdorangebox},headpunct={\\[3pt]},postheadspace=0pt,]{thmorangebox}
+\mdfdefinestyle{mdgreenbox}{linecolor=ForestGreen,backgroundcolor=ForestGreen!5,
+    linewidth=1pt,rightline=true,leftline=true,topline=true,bottomline=true,}
+\declaretheoremstyle[headfont=\bfseries\sffamily\color{ForestGreen!70!black},
+    mdframed={style=mdgreenbox},headpunct={ --- },]{thmgreenbox}
+\mdfdefinestyle{mdblackbox}{linecolor=black,backgroundcolor=RedViolet!5!gray!5,
+    linewidth=3pt,rightline=false,leftline=true,topline=false,bottomline=false,}
+\declaretheoremstyle[mdframed={style=mdblackbox}]{thmblackbox}
+\mdfdefinestyle{mdredbox}{frametitlefont=\bfseries,innerbottommargin=8pt,
+    nobreak=true,backgroundcolor=Salmon!5,linecolor=RawSienna,}
+\declaretheoremstyle[headfont=\bfseries\color{RawSienna},
+    mdframed={style=mdredbox},headpunct={\\[3pt]},postheadspace=0pt,]{thmredbox}
+\mdfdefinestyle{mdyellowbox}{linecolor=Gold,backgroundcolor=Gold!20,
+    linewidth=2pt,rightline=false,leftline=true,topline=false,bottomline=false,}
+\declaretheoremstyle[headfont=\bfseries\sffamily\color{Gold!70!black},
+    mdframed={style=mdyellowbox},headpunct={ --- },]{thmyellowbox}
+
+\mdfdefinestyle{mdbrownbox}{roundcorner=10pt,innerbottommargin=9pt,
+    linecolor=Brown!70!black,linewidth=1pt,backgroundcolor=Brown!5,}
+\declaretheoremstyle[headfont=\bfseries\sffamily\color{Brown},
+    mdframed={style=mdbrownbox},headpunct={\\[3pt]},postheadspace=0pt,]{thmbrownbox}
+%Problem Enviorments
+    \declaretheorem[style=thmredbox,name=Problem,numbered=yes]{problem}
+    \declaretheorem[style=thmredbox,name=Required Problem,sibling=problem]{reqproblem}
+%Theorem+Lemma
+    \declaretheorem[style=thmbluebox,name=Theorem,numberwithin=subsection,numbered=yes]{theorem}
+    \declaretheorem[style=thmbluebox,name=Theorem,numbered=no]{theorem*}
+    \declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem,numberwithin=problem,numbered=yes]{lemma}
+    \declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem,numberwithin=theorem,numbered=yes]{lemmat}
+
+\declaretheorem[style=thmyellowbox,name=Claim,sibling=theorem,numberwithin=problem]{claim}
+\declaretheorem[style=thmyellowbox,name=Claim,sibling=theorem,numberwithin=lemma]{claiml}
+\declaretheorem[style=thmyellowbox,name=Claim,numbered=no]{claim*}
+\declaretheorem[style=thmblackbox,name=Remark,sibling=theorem,numberwithin=section]{remark}
+\declaretheorem[style=thmblackbox,name=Remark,numbered=no]{remark*}
+\declaretheorem[style=thmbrownbox,name=Definition,sibling=theorem,numberwithin=section]{definition}
+\declaretheorem[style=thmbrownbox,name=Definition,sibling=theorem,numberwithin=problem]{definitionp}
+\declaretheorem[style=thmbrownbox,name=Definition,sibling=theorem,numberwithin=theorem]{definitiont}
+\declaretheorem[style=thmbrownbox,name=Definition,numbered=no]{definition*}
+\declaretheorem[style=thmblackbox,name=Example,sibling=theorem]{example}
+\declaretheorem[style=thmblackbox,name=Example,numbered=no]{example*}
+\declaretheorem[style=thmgreenbox,name=Solution,sibling=theorem,numberwithin=problem]{solution}
+\declaretheorem[style=thmorangebox,name=Proof,numbered=no]{pf}
+\declaretheorem[style=thmgreenbox,name=Solution,numbered=no]{solution*}
+\declaretheorem[style=thmbluebox,name=Lemma,numbered=no]{lemma*}
+\declaretheorem[style=thmyellowbox,name=Claim,sibling=theorem,numberwithin=solution]{claims}
+\declaretheorem[style=thmbluebox,name=Lemma,sibling=theorem,numberwithin=solution]{lemmas}
+\declaretheorem[style=thmorangebox,name=Example,sibling=theorem]{examples}
+\declaretheorem[style=thmyellowbox,name=Technique,sibling=theorem]{technique}
+\declaretheorem[style=thmyellowbox,name=Observation,sibling=theorem,numberwithin=problem]{observation}
+\numberwithin{equation}{problem}
+\numberwithin{paragraph}{subsubsection}
+\let \textnormal \sffamily
+\DeclareMathAlphabet{\mathsf}{OT1}{pag}{m}{n}
+\let\mathnormal\textnormal
+  \let\mathsc\textsc
+  \let\mathbf\textbf
+  \let\mathit\textit

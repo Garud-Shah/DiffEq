@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage{gstyle}
+\title{Differential Equations Week \textbf{12}}
+\author{Garud Shah}
+\begin{document}
+    \maketitle \newpage 
+    \begin{problem}
+        Solve the following differential equation:
+        \begin{align}
+            \begin{cases}
+                P' &= P(c-r(N)) \\
+                Q' &= Pr(N) \\
+                N &= P+Q
+            \end{cases}
+        \end{align}
+        for $r(N) = b(1+\log N)$.
+    \end{problem}
+    \begin{solution}
+        Note that $Q(t)$ is very annoying, let's turn this into an $p, N$ differential equation system.
+        \begin{align}
+            &\begin{cases}
+                P' &= P(c-r(N)) \\
+                N' &= cP 
+            \end{cases}.
+        \end{align}
+        Now we solve the phase plane differential equation,
+        \begin{align}
+            \dfrac{dP}{dN} &= \dfrac{c-br(N)}{c} \\
+            P &= N - \dfrac{1}{c} \int_0^k r(t) \, dt +\alpha.
+        \end{align}
+        
+    \end{solution}
+\end{document}
