@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1746632234.76048 "/home/garuds/DiffEq/Wk12/HW.tex" "HW.pdf" "HW" 1746632235.47599 0
+["pdflatex"] 1746632269.15869 "/home/garuds/DiffEq/Wk12/HW.tex" "HW.pdf" "HW" 1746632269.94243 0
   "/etc/texmf/web2c/texmf.cnf" 1736024936.47851 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/garuds/DiffEq/Wk12/HW.tex" 1746632233.7023 997 bbd144ba70a0ddba5e698b8deda0a571 ""
+  "/home/garuds/DiffEq/Wk12/HW.tex" 1746632268.72646 1005 dc15fecf47d55759a811026e2c4f1f20 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -204,10 +204,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1736199736.66601 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1736199761 8215918 92dda2a2c2bcad201c3dd009f28d94f7 ""
-  "HW.aux" 1746632235.4105 573 6768bc89d19ab041ea11f1471a1a8e72 "pdflatex"
-  "HW.out" 1746632235.29599 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "HW.pre" 1746632235.08604 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "HW.tex" 1746632233.7023 997 bbd144ba70a0ddba5e698b8deda0a571 ""
+  "HW.aux" 1746632269.88113 573 6768bc89d19ab041ea11f1471a1a8e72 "pdflatex"
+  "HW.out" 1746632269.74753 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "HW.pre" 1746632269.52805 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "HW.tex" 1746632268.72646 1005 dc15fecf47d55759a811026e2c4f1f20 ""
   "gstyle.sty" 1746630837.61998 7217 aca71d15317c2d9b28a861cf5a990ae8 ""
   (generated)
   "HW.aux"
