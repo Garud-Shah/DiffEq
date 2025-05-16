@@ -13,10 +13,14 @@
                 N &= P+Q
             \end{cases}
         \end{align}
-        for $r(N) = b(1+\log N)$.
+        for 
+        \begin{enumerate}[(a)]
+            \item $r(N) = b(1+\log N)$, $P(0)=1$, $Q(0)=0$, $N(0)=1$
+            \item $r(N) = (2N-1)s$. 
+        \end{enumerate}
     \end{problem}
     \begin{solution}
-        Note that $Q(t)$ is very annoying, let's turn this into an $p, N$ differential equation system.
+        Note that $Q(t)$ is very annoying, let's turn this into an $P, N$ differential equation system.
         \begin{align}
             &\begin{cases}
                 P' &= P(c-r(N)) \\
@@ -25,9 +29,37 @@
         \end{align}
         Now we solve the phase plane differential equation,
         \begin{align}
-            \dfrac{dP}{dN} &= \dfrac{c-br(N)}{c} \\
-            P &= N - \dfrac{1}{c} \int_0^k r(t) \, dt +\alpha.
+            \dfrac{dP}{dN} &= \dfrac{c-r(N)}{c} \\
+            P &= N - \dfrac{1}{c} \int_{dontcare}^N\ r(x) \, dx +\alpha.
         \end{align}
-        
+        Now, plug back in:
+        \begin{align}
+            N' &= c\left(\displaystyle N - \dfrac{1}{c} \int_{dontcare}^N\ r(x) \, dx  +\alpha\right) \\
+            t &= \int \dfrac{1}{cN - \int_{dontcare}^N\ r(x) \, dx  +c\alpha} \, dN 
+        \end{align}
+    \end{solution}\newpage
+    \begin{solution}
+        Plug in (set dontcare to 1):
+        \begin{align}
+            t &= \int \dfrac{1}{cN - b N\log N} \, dN  \\
+            &= \int \dfrac{1}{N} \cdot \dfrac{1}{c-b \log N} \, dN \\
+            &= \int \dfrac{1}{c-bu} \, du \\
+            &= -\dfrac{1}{b}\log | c-b\log|N||+C \\
+            c-ae^{-bt} &= b \log|N| \\\
+            N &= e^{\frac{1}{b}(c-ae^{-bt})} \\
+            P &= e^{\frac{1}{b}(c-ae^{-bt})} - \dfrac{1}{c} N\log N \\
+            &= e^{\frac{1}{b}(c-ae^{-bt})}\left(1-\frac{1}{bc}(c-ae^{-bt})\right)
+        \end{align}
+    \end{solution}
+    \begin{solution}
+        Plug in (set dontcare to 0):
+        \begin{align}
+            t &= \int \dfrac{1}{cN - sN + sN^2} \, dN \\
+            &= \int \dfrac{1}{N(c-s+sN)} \, dN \\
+            &= \dfrac{1}{s} \int \dfrac{1}{N(N-1+c/s)} \, dN \\
+            &= \dfrac{1}{c-s}\log \left|\dfrac{N}{N-1+c/s} \right| \\
+            e^{t(c-s)} &= \dfrac{N}{N-1+c/s} \\
+            N(1-e^{t(c-s)}) 
+        \end{align}
     \end{solution}
 \end{document}
